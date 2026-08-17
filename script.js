@@ -379,7 +379,7 @@ if (contactForm) {
 
     // Open mailto after short delay
     setTimeout(() => {
-      window.location.href = `mailto:hello@ammarganchi.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:ammardigital04@gmail.com?subject=${subject}&body=${body}`;
     }, 600);
   });
 
