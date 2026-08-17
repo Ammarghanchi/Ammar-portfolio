@@ -1,0 +1,67 @@
+/* Refined hero layout: protected editorial content, growth signal and portrait zones. */
+.hero {
+  isolation: isolate;
+  min-height: 730px;
+  padding: 42px 6vw 76px;
+}
+.hero-meta { position: absolute; top: 44px; right: 6vw; z-index: 4; }
+.hero-copy { position: relative; z-index: 3; width: 57%; max-width: 690px; }
+.hero .eyebrow { margin: 92px 0 24px; }
+.hero h1 { max-width: 650px; font-size: clamp(3.65rem, 6vw, 6.65rem); line-height: .9; letter-spacing: -.072em; }
+.hero h1 em { display: inline-block; }
+.hero-bottom { display: block; margin: 42px 0 0 4px; max-width: 350px; }
+.hero-bottom p { max-width: none; color: #d5dbe3; font-size: 14px; line-height: 1.58; }
+.round-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 28px 0 0 10px;
+  width: 116px;
+  height: 116px;
+  padding: 18px;
+  font-size: 10px;
+  line-height: 1.45;
+  text-align: center;
+  transform: rotate(-5deg);
+}
+.round-cta span { margin-left: 3px; font-size: 17px; }
+.round-cta:hover { transform: rotate(0) scale(1.06); }
+.hero-portrait {
+  position: absolute;
+  z-index: 2;
+  right: 6vw;
+  bottom: 62px;
+  width: clamp(305px, 26vw, 380px);
+  height: 535px;
+  margin: 0;
+  overflow: hidden;
+  border: 8px solid var(--cream);
+  border-radius: 190px 190px 0 0;
+  background: #eee9dd;
+  box-shadow: 0 14px 30px rgba(0,0,0,.16);
+}
+.hero-portrait::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 58%, rgba(11,31,58,.76) 100%); pointer-events: none; }
+.hero-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: saturate(.86) contrast(1.03); }
+.hero-portrait figcaption { position: absolute; z-index: 1; bottom: 21px; left: 20px; color: var(--cream); font: 9px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.hero .chart-motif {
+  z-index: 3;
+  right: auto;
+  left: 56%;
+  bottom: 78px;
+  width: 210px;
+  height: 132px;
+  gap: 10px;
+  border-bottom-color: #7a899a66;
+}
+.hero .chart-motif span { width: 27px; background: #a9b6c4; opacity: .35; }
+.hero .chart-motif span:nth-child(1) { height: 24%; }.hero .chart-motif span:nth-child(2) { height: 43%; }.hero .chart-motif span:nth-child(3) { height: 36%; }.hero .chart-motif span:nth-child(4) { height: 72%; background: var(--amber); opacity: 1; }
+.hero .chart-motif i { width: 178px; bottom: 15px; left: 8px; border-top-color: var(--sage); }
+.chart-labels { position: absolute; top: -22px; left: 0; display: flex; gap: 12px; width: 220px; color: #aebbc9; font: 8px var(--mono); letter-spacing: .04em; white-space: nowrap; }
+.chart-labels b:nth-child(1),.chart-labels b:nth-child(2) { font-weight: 400; }.chart-labels b:nth-child(2) { color: var(--sage); }.chart-labels b:nth-child(3) { color: #aebbc9; }
+@media (max-width: 1100px) and (min-width: 761px) {
+  .hero-copy { width: 56%; }.hero h1 { font-size: clamp(3.35rem, 5.8vw, 5.1rem); }
+  .hero-portrait { right: 4vw; width: 29vw; height: 505px; }.hero .chart-motif { left: 54%; width: 170px; }.hero .chart-motif i { width: 145px; }
+}
+@media (max-width: 760px) {
+  .hero { min-height: 760px; padding: 30px 7vw 72px; }.hero-meta { position: static; text-align: left; font-size: 9px; }.hero-copy { width: 100%; max-width: none; }.hero .eyebrow { margin: 52px 0 20px; font-size: 9px; }.hero h1 { max-width: 68%; font-size: clamp(3.1rem, 14.5vw, 4.6rem); line-height: .9; }.hero-bottom { margin: 34px 0 0; max-width: 58%; }.hero-bottom p { font-size: 12px; }.round-cta { width: 101px; height: 101px; margin: 24px 0 0 7px; font-size: 8px; }.hero-portrait { right: 6vw; bottom: 58px; width: 150px; height: 260px; border-width: 6px; border-radius: 86px 86px 0 0; opacity: .9; }.hero-portrait figcaption { bottom: 12px; left: 11px; font-size: 6px; }.hero .chart-motif { left: 7vw; bottom: 73px; width: 145px; height: 82px; gap: 7px; }.hero .chart-motif span { width: 19px; }.hero .chart-motif i { width: 124px; bottom: 10px; }.chart-labels { top: -17px; gap: 7px; width: 150px; font-size: 6px; }
+}
