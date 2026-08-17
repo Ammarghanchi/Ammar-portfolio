@@ -1,67 +1,294 @@
-/* Refined hero layout: protected editorial content, growth signal and portrait zones. */
+/* ================================================
+   HERO PORTRAIT — Editorial Layout
+   ================================================ */
+
 .hero {
   isolation: isolate;
   min-height: 730px;
-  padding: 42px 6vw 76px;
+  padding: var(--space-4xl) 6vw var(--space-3xl);
 }
-.hero-meta { position: absolute; top: 44px; right: 6vw; z-index: 4; }
-.hero-copy { position: relative; z-index: 3; width: 57%; max-width: 690px; }
-.hero .eyebrow { margin: 92px 0 24px; }
-.hero h1 { max-width: 650px; font-size: clamp(3.65rem, 6vw, 6.65rem); line-height: .9; letter-spacing: -.072em; }
-.hero h1 em { display: inline-block; }
-.hero-bottom { display: block; margin: 42px 0 0 4px; max-width: 350px; }
-.hero-bottom p { max-width: none; color: #d5dbe3; font-size: 14px; line-height: 1.58; }
-.round-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 28px 0 0 10px;
-  width: 116px;
-  height: 116px;
-  padding: 18px;
-  font-size: 10px;
-  line-height: 1.45;
-  text-align: center;
-  transform: rotate(-5deg);
+
+.hero-meta {
+  position: absolute;
+  top: var(--space-4xl);
+  right: 6vw;
+  z-index: 4;
+  text-align: right;
+  justify-content: flex-end;
 }
-.round-cta span { margin-left: 3px; font-size: 17px; }
-.round-cta:hover { transform: rotate(0) scale(1.06); }
+
+.hero-copy {
+  position: relative;
+  z-index: 3;
+  width: 57%;
+  max-width: 700px;
+}
+
+.hero .eyebrow {
+  margin: var(--space-3xl) 0 var(--space-2xl);
+}
+
+.hero h1 {
+  max-width: 670px;
+  font-family: var(--sans);
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+
+.hero h1 em {
+  display: inline-block;
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+}
+
+.hero-bottom {
+  display: block;
+  margin: var(--space-3xl) 0 0 var(--space-sm);
+  max-width: 400px;
+}
+
+.hero-bottom p {
+  max-width: none;
+  color: #d5dbe3;
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
+/* ================================================
+   HERO PORTRAIT — Image
+   ================================================ */
+
 .hero-portrait {
   position: absolute;
   z-index: 2;
   right: 6vw;
-  bottom: 62px;
+  bottom: var(--space-3xl);
   width: clamp(305px, 26vw, 380px);
   height: 535px;
   margin: 0;
   overflow: hidden;
   border: 8px solid var(--cream);
   border-radius: 190px 190px 0 0;
-  background: #eee9dd;
-  box-shadow: 0 14px 30px rgba(0,0,0,.16);
+  background: var(--surface-case-art);
+  box-shadow: 0 var(--space-xl) var(--space-3xl) var(--shadow-soft);
 }
-.hero-portrait::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 58%, rgba(11,31,58,.76) 100%); pointer-events: none; }
-.hero-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: saturate(.86) contrast(1.03); }
-.hero-portrait figcaption { position: absolute; z-index: 1; bottom: 21px; left: 20px; color: var(--cream); font: 9px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-.hero .chart-motif {
+
+.hero-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(8, 27, 49, 0.76) 100%);
+  pointer-events: none;
+}
+
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.86) contrast(1.03);
+}
+
+.hero-portrait figcaption {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--space-xl);
+  left: var(--space-xl);
+  color: var(--cream);
+  font: 10px / 1.4 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ================================================
+   HERO TRUST SIGNALS — position below hero-bottom
+   ================================================ */
+
+.hero-trust {
+  position: relative;
   z-index: 3;
+  margin-left: var(--space-sm);
+  max-width: 420px;
+}
+
+/* ================================================
+   CHART MOTIF
+   ================================================ */
+
+.chart-motif {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-sm);
+  border-bottom: 1px solid transparent;
   right: auto;
   left: 56%;
-  bottom: 78px;
+  bottom: var(--space-3xl);
   width: 210px;
   height: 132px;
-  gap: 10px;
+}
+
+.hero .chart-motif {
   border-bottom-color: #7a899a66;
 }
-.hero .chart-motif span { width: 27px; background: #a9b6c4; opacity: .35; }
-.hero .chart-motif span:nth-child(1) { height: 24%; }.hero .chart-motif span:nth-child(2) { height: 43%; }.hero .chart-motif span:nth-child(3) { height: 36%; }.hero .chart-motif span:nth-child(4) { height: 72%; background: var(--amber); opacity: 1; }
-.hero .chart-motif i { width: 178px; bottom: 15px; left: 8px; border-top-color: var(--sage); }
-.chart-labels { position: absolute; top: -22px; left: 0; display: flex; gap: 12px; width: 220px; color: #aebbc9; font: 8px var(--mono); letter-spacing: .04em; white-space: nowrap; }
-.chart-labels b:nth-child(1),.chart-labels b:nth-child(2) { font-weight: 400; }.chart-labels b:nth-child(2) { color: var(--sage); }.chart-labels b:nth-child(3) { color: #aebbc9; }
-@media (max-width: 1100px) and (min-width: 761px) {
-  .hero-copy { width: 56%; }.hero h1 { font-size: clamp(3.35rem, 5.8vw, 5.1rem); }
-  .hero-portrait { right: 4vw; width: 29vw; height: 505px; }.hero .chart-motif { left: 54%; width: 170px; }.hero .chart-motif i { width: 145px; }
+
+.chart-motif span {
+  display: block;
+  width: 27px;
+  border-radius: 3px 3px 0 0;
+  background: var(--text-light-faint);
+  opacity: 0.35;
 }
+
+.hero .chart-motif span {
+  width: 27px;
+  background: var(--text-light-faint);
+  opacity: 0.35;
+}
+
+.hero .chart-motif span:nth-child(1) { height: 24%; }
+.hero .chart-motif span:nth-child(2) { height: 43%; }
+.hero .chart-motif span:nth-child(3) { height: 36%; }
+.hero .chart-motif span:nth-child(4) { height: 72%; background: var(--amber); opacity: 1; }
+
+.hero .chart-motif i {
+  position: absolute;
+  display: block;
+  width: 178px;
+  height: 0;
+  border-top: 1px dashed var(--sage);
+  opacity: 0.5;
+  bottom: 15px;
+  left: 8px;
+}
+
+.chart-labels {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  display: flex;
+  gap: var(--space-sm);
+  width: 220px;
+  color: var(--text-light-muted);
+  font: 8px var(--mono);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.chart-labels b {
+  font-weight: 400;
+}
+
+.chart-labels b:nth-child(2) {
+  color: var(--sage);
+}
+
+/* ================================================
+   RESPONSIVE — Tablet
+   ================================================ */
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .hero-copy {
+    width: 56%;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.25rem, 5.8vw, 5.1rem);
+  }
+
+  .hero-portrait {
+    right: 4vw;
+    width: 29vw;
+    height: 505px;
+  }
+
+  .hero .chart-motif {
+    left: 54%;
+    width: 170px;
+  }
+
+  .hero .chart-motif i {
+    width: 145px;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — Mobile
+   ================================================ */
+
 @media (max-width: 760px) {
-  .hero { min-height: 760px; padding: 30px 7vw 72px; }.hero-meta { position: static; text-align: left; font-size: 9px; }.hero-copy { width: 100%; max-width: none; }.hero .eyebrow { margin: 52px 0 20px; font-size: 9px; }.hero h1 { max-width: 68%; font-size: clamp(3.1rem, 14.5vw, 4.6rem); line-height: .9; }.hero-bottom { margin: 34px 0 0; max-width: 58%; }.hero-bottom p { font-size: 12px; }.round-cta { width: 101px; height: 101px; margin: 24px 0 0 7px; font-size: 8px; }.hero-portrait { right: 6vw; bottom: 58px; width: 150px; height: 260px; border-width: 6px; border-radius: 86px 86px 0 0; opacity: .9; }.hero-portrait figcaption { bottom: 12px; left: 11px; font-size: 6px; }.hero .chart-motif { left: 7vw; bottom: 73px; width: 145px; height: 82px; gap: 7px; }.hero .chart-motif span { width: 19px; }.hero .chart-motif i { width: 124px; bottom: 10px; }.chart-labels { top: -17px; gap: 7px; width: 150px; font-size: 6px; }
+  .hero {
+    min-height: 820px;
+    padding: var(--space-2xl) 7vw var(--space-5xl);
+  }
+
+  .hero-meta {
+    position: static;
+    text-align: left;
+    font-size: 10px;
+    justify-content: flex-start;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero .eyebrow {
+    margin: var(--space-3xl) 0 var(--space-xl);
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    max-width: 72%;
+    font-size: clamp(2.5rem, 14vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+  }
+
+  .hero-bottom {
+    margin: var(--space-2xl) 0 0;
+    max-width: 58%;
+  }
+
+  .hero-bottom p {
+    font-size: var(--text-xs);
+  }
+
+  .hero-trust {
+    margin-left: 0;
+    max-width: none;
+    margin-top: var(--space-2xl);
+  }
+
+  .hero-portrait {
+    right: 6vw;
+    bottom: var(--space-3xl);
+    width: 150px;
+    height: 260px;
+    border-width: 6px;
+    border-radius: 86px 86px 0 0;
+    opacity: 0.9;
+  }
+
+  .hero-portrait figcaption {
+    bottom: var(--space-sm);
+    left: var(--space-sm);
+    font-size: 7px;
+  }
+
+  .hero .chart-motif {
+    left: 7vw;
+    bottom: var(--space-3xl);
+    width: 145px;
+    height: 82px;
+    gap: 7px;
+    display: none; /* Hide on small screens to reduce clutter */
+  }
 }

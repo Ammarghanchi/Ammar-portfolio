@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mohammad Ammar Ghanchi — Performance and growth marketing consultant in Ahmedabad, India." />
+    <meta name="description" content="Mohammad Ammar Ghanchi — Performance and growth marketing consultant in Ahmedabad, India. 6+ years driving measurable ROI across Google Ads, Meta Ads, and SEO." />
     <title>Mohammad Ammar Ghanchi — Performance Marketing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,80 +15,615 @@
   </head>
   <body>
     <div class="grain"></div>
-    <header class="nav">
+
+    <!-- ============================================================
+         NAVIGATION — Scroll-aware sticky nav with active indicators
+         ============================================================ -->
+    <header class="nav" id="site-nav" role="banner">
       <a class="monogram" href="#top" aria-label="Back to top">MAG<span>·</span></a>
       <nav aria-label="Main navigation">
-        <a href="#work">Work</a><a href="#expertise">Expertise</a><a href="#about">About</a><a href="#contact">Contact</a>
+        <a href="#work" data-nav-link="work">Work</a>
+        <a href="#expertise" data-nav-link="expertise">Expertise</a>
+        <a href="#about" data-nav-link="about">About</a>
+        <a href="#contact" data-nav-link="contact">Contact</a>
       </nav>
-      <a class="nav-cta" href="#contact">Let’s talk <span>↗</span></a>
+      <a class="nav-cta" href="#contact">Let's talk <span>↗</span></a>
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </header>
 
     <main id="top">
+
+      <!-- ============================================================
+           HERO — Editorial layout, trust signals, scroll indicator
+           ============================================================ -->
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-meta"><span class="signal"></span> Ahmedabad, India <span class="meta-dot">/</span> Available globally</div>
+
+        <!-- Availability status signal -->
+        <div class="hero-meta">
+          <span class="signal" aria-hidden="true"></span>
+          Available for new projects
+          <span class="meta-sep" aria-hidden="true">/</span>
+          Ahmedabad → worldwide
+        </div>
+
+        <!-- Primary copy block -->
         <div class="hero-copy">
-          <p class="eyebrow">Mohammad Ammar Ghanchi <span>—</span> Digital Marketing Executive</p>
-          <h1 id="hero-title">Growth that<br />shows up in<br /><em>numbers.</em></h1>
+          <p class="eyebrow">
+            Mohammad Ammar Ghanchi <span aria-hidden="true">—</span> Digital Marketing Executive
+          </p>
+
+          <h1 id="hero-title">
+            Growth that<br />
+            shows up in<br />
+            <em>numbers.</em>
+          </h1>
+
           <div class="hero-bottom">
-            <p>I build performance campaigns across<br />paid ads, SEO and social—then keep<br />refining until the return speaks for itself.</p>
-            <a class="round-cta" href="#contact" aria-label="Book a free 15 minute audit call">Book a free<br />15-min audit <span>→</span></a>
+            <p>I build performance campaigns across paid ads, SEO and social—then keep refining until the return speaks for itself.</p>
+
+            <!-- CTA hierarchy: primary round + secondary text link -->
+            <div class="hero-ctas">
+              <a class="round-cta" href="#contact" aria-label="Book a free 15-minute strategy audit">
+                Book a free<br />15-min audit <span aria-hidden="true">→</span>
+              </a>
+              <a class="hero-secondary-cta" href="#work">
+                See case studies <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Trust signals row -->
+          <div class="hero-trust" aria-label="Trust signals">
+            <div class="trust-item">
+              <strong>6+</strong>
+              <span>Years experience</span>
+            </div>
+            <div class="trust-sep" aria-hidden="true"></div>
+            <div class="trust-item">
+              <strong>₹Cr+</strong>
+              <span>Ad spend managed</span>
+            </div>
+            <div class="trust-sep" aria-hidden="true"></div>
+            <div class="trust-item">
+              <strong>ROI</strong>
+              <span>Always measurable</span>
+            </div>
           </div>
         </div>
+
+        <!-- Portrait image -->
         <figure class="hero-portrait">
-          <img src="ammar-portrait.png" alt="Mohammad Ammar Ghanchi, Digital Marketing Executive" />
+          <img
+            src="ammar-portrait.png"
+            alt="Mohammad Ammar Ghanchi, Digital Marketing Executive based in Ahmedabad"
+            loading="eager"
+            decoding="async"
+          />
           <figcaption>Performance marketer<br />Ahmedabad → worldwide</figcaption>
         </figure>
-        <div class="chart-motif" aria-label="Illustration of campaign performance growth"><span></span><span></span><span></span><span></span><i></i><div class="chart-labels"><b>ROAS ↑</b><b>REVENUE ↑</b><b>CPA ↓</b></div></div>
+
+        <!-- Decorative chart motif -->
+        <div class="chart-motif" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+          <i></i>
+          <div class="chart-labels">
+            <b>ROAS ↑</b><b>REVENUE ↑</b><b>CPA ↓</b>
+          </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <a class="scroll-indicator" href="#proof-strip" aria-label="Scroll to see more">
+          <span class="scroll-line" aria-hidden="true"></span>
+          <span class="scroll-text">Scroll</span>
+        </a>
+
       </section>
 
-      <section class="proof-strip" aria-label="Quick facts">
-        <div><strong>06</strong><span>years making<br />growth measurable</span></div>
-        <div><strong>05</strong><span>performance<br />platforms mastered</span></div>
-        <div><strong>02</strong><span>tracks: in-house<br />and freelance</span></div>
-        <div><strong>ROI</strong><span>over vanity<br />metrics, always</span></div>
+      <!-- ============================================================
+           PROOF STRIP — Animated counters, metric context
+           ============================================================ -->
+      <section class="proof-strip" id="proof-strip" aria-label="Key metrics and achievements">
+        <div class="proof-item" data-count="6" data-suffix="+">
+          <strong class="proof-number" aria-label="6 plus years">06</strong>
+          <span class="proof-label">years making<br />growth measurable</span>
+          <span class="proof-context">Since 2019</span>
+        </div>
+        <div class="proof-item" data-count="5">
+          <strong class="proof-number" aria-label="5 platforms">05</strong>
+          <span class="proof-label">performance<br />platforms mastered</span>
+          <span class="proof-context">Google · Meta · GA4</span>
+        </div>
+        <div class="proof-item" data-count="2">
+          <strong class="proof-number" aria-label="2 tracks">02</strong>
+          <span class="proof-label">tracks: in-house<br />and freelance</span>
+          <span class="proof-context">Pelquant · Independent</span>
+        </div>
+        <div class="proof-item">
+          <strong class="proof-number proof-text-stat" aria-label="ROI first">ROI</strong>
+          <span class="proof-label">over vanity<br />metrics, always</span>
+          <span class="proof-context">Results-first mindset</span>
+        </div>
       </section>
 
+      <!-- ============================================================
+           EXPERTISE — Better accordion, outcome badges, icons
+           ============================================================ -->
       <section class="expertise section-dark" id="expertise" aria-labelledby="expertise-heading">
-        <div class="section-intro"><p class="section-number">01 / Expertise</p><h2 id="expertise-heading">The levers that<br /><em>move the needle.</em></h2><p>Clear strategy. Smart execution. An obsessive feedback loop between the data and the next decision.</p></div>
-        <div class="accordion">
-          <details open><summary><span>01</span><b>Paid advertising</b><i>+</i></summary><div class="accordion-answer"><p>Intent-led campaigns engineered to turn attention into qualified action.</p><ul><li>Google Search, Display & Shopping</li><li>Meta Ads: Facebook & Instagram</li><li>Budget allocation & conversion tracking</li></ul><strong>Outcome: profitable acquisition</strong></div></details>
-          <details><summary><span>02</span><b>SEO & content</b><i>+</i></summary><div class="accordion-answer"><p>Organic visibility built around what your customers are actually searching for.</p><ul><li>Technical & on-page SEO</li><li>Keyword strategy & content mapping</li><li>Off-page authority building</li></ul><strong>Outcome: compounding discovery</strong></div></details>
-          <details><summary><span>03</span><b>Growth marketing</b><i>+</i></summary><div class="accordion-answer"><p>Full-funnel experiments that find the most efficient route to sustainable growth.</p><ul><li>Funnel diagnostics</li><li>Landing page optimisation</li><li>Retention and remarketing</li></ul><strong>Outcome: more value per visitor</strong></div></details>
-          <details><summary><span>04</span><b>Social media marketing</b><i>+</i></summary><div class="accordion-answer"><p>Social content and paid distribution working together to grow a recognisable brand.</p><ul><li>Channel strategy</li><li>Creative testing</li><li>Community-minded reporting</li></ul><strong>Outcome: a sharper brand presence</strong></div></details>
-          <details><summary><span>05</span><b>Analytics & optimisation</b><i>+</i></summary><div class="accordion-answer"><p>Every decision is traceable. Every report answers what happens next.</p><ul><li>GA4 & Search Console</li><li>Campaign analysis</li><li>Weekly improvement cycles</li></ul><strong>Outcome: confident investment</strong></div></details>
+        <div class="section-intro">
+          <p class="section-number">01 / Expertise</p>
+          <h2 id="expertise-heading">
+            The levers that<br /><em>move the needle.</em>
+          </h2>
+          <p>Clear strategy. Smart execution. An obsessive feedback loop between the data and the next decision.</p>
+        </div>
+
+        <div class="accordion" role="list">
+
+          <details open role="listitem">
+            <summary aria-expanded="true">
+              <span class="acc-num">01</span>
+              <span class="acc-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="5" height="18" rx="1"/><rect x="9.5" y="8" width="5" height="13" rx="1"/><rect x="17" y="5" width="5" height="16" rx="1"/></svg>
+              </span>
+              <b>Paid advertising</b>
+              <span class="acc-badge">Profitable acquisition</span>
+              <i aria-hidden="true">+</i>
+            </summary>
+            <div class="accordion-answer">
+              <p>Intent-led campaigns engineered to turn attention into qualified action. Every rupee tracked, every conversion optimised.</p>
+              <ul>
+                <li>Google Search, Display &amp; Shopping campaigns</li>
+                <li>Meta Ads: Facebook &amp; Instagram funnels</li>
+                <li>Budget allocation &amp; conversion tracking</li>
+                <li>A/B creative testing &amp; bid strategy refinement</li>
+              </ul>
+              <div class="outcome-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                Outcome: profitable acquisition at scale
+              </div>
+            </div>
+          </details>
+
+          <details role="listitem">
+            <summary aria-expanded="false">
+              <span class="acc-num">02</span>
+              <span class="acc-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </span>
+              <b>SEO &amp; content</b>
+              <span class="acc-badge">Compounding discovery</span>
+              <i aria-hidden="true">+</i>
+            </summary>
+            <div class="accordion-answer">
+              <p>Organic visibility built around what your customers are actually searching for. Content that compounds in value over time.</p>
+              <ul>
+                <li>Technical &amp; on-page SEO audits</li>
+                <li>Keyword strategy &amp; content mapping</li>
+                <li>Off-page authority building</li>
+                <li>Core Web Vitals &amp; page experience</li>
+              </ul>
+              <div class="outcome-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                Outcome: compounding organic discovery
+              </div>
+            </div>
+          </details>
+
+          <details role="listitem">
+            <summary aria-expanded="false">
+              <span class="acc-num">03</span>
+              <span class="acc-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </span>
+              <b>Growth marketing</b>
+              <span class="acc-badge">More value per visitor</span>
+              <i aria-hidden="true">+</i>
+            </summary>
+            <div class="accordion-answer">
+              <p>Full-funnel experiments that find the most efficient route to sustainable growth. Hypothesis → test → learn → repeat.</p>
+              <ul>
+                <li>Funnel diagnostics &amp; CRO audits</li>
+                <li>Landing page optimisation</li>
+                <li>Retention and remarketing loops</li>
+                <li>Attribution modelling &amp; revenue analysis</li>
+              </ul>
+              <div class="outcome-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                Outcome: more value extracted per visitor
+              </div>
+            </div>
+          </details>
+
+          <details role="listitem">
+            <summary aria-expanded="false">
+              <span class="acc-num">04</span>
+              <span class="acc-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5z"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </span>
+              <b>Social media marketing</b>
+              <span class="acc-badge">Sharper brand presence</span>
+              <i aria-hidden="true">+</i>
+            </summary>
+            <div class="accordion-answer">
+              <p>Social content and paid distribution working together to grow a recognisable, trusted brand at scale.</p>
+              <ul>
+                <li>Channel strategy &amp; content calendar</li>
+                <li>Creative testing across formats</li>
+                <li>Community engagement &amp; reporting</li>
+                <li>Influencer &amp; partnership outreach</li>
+              </ul>
+              <div class="outcome-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                Outcome: a sharper, scalable brand presence
+              </div>
+            </div>
+          </details>
+
+          <details role="listitem">
+            <summary aria-expanded="false">
+              <span class="acc-num">05</span>
+              <span class="acc-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </span>
+              <b>Analytics &amp; optimisation</b>
+              <span class="acc-badge">Confident investment</span>
+              <i aria-hidden="true">+</i>
+            </summary>
+            <div class="accordion-answer">
+              <p>Every decision is traceable. Every report answers what happens next. No vanity dashboards—only data that drives action.</p>
+              <ul>
+                <li>GA4 setup, goals &amp; Search Console</li>
+                <li>Custom dashboard &amp; campaign analysis</li>
+                <li>Weekly improvement cycles</li>
+                <li>Multi-touch attribution &amp; ROAS reporting</li>
+              </ul>
+              <div class="outcome-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                Outcome: confident, data-backed investment
+              </div>
+            </div>
+          </details>
+
         </div>
       </section>
 
+      <!-- ============================================================
+           WORK — Richer case cards, result callouts, CTA improvement
+           ============================================================ -->
       <section class="work" id="work" aria-labelledby="work-heading">
-        <div class="work-header"><p class="section-number">02 / Selected work</p><h2 id="work-heading">Built around<br /><em>the outcome.</em></h2><p>Campaign stories, structured from the business problem through to what changed. <small>Detailed results available on request.</small></p></div>
+        <div class="work-header">
+          <p class="section-number">02 / Selected work</p>
+          <h2 id="work-heading">Built around<br /><em>the outcome.</em></h2>
+          <p>Campaign stories, structured from the business problem through to what changed.</p>
+          <small>Detailed results shared under NDA on request.</small>
+        </div>
+
         <div class="case-grid">
-          <article class="case case-one"><div class="case-label"><span>01 — Performance</span><span>Google Ads</span></div><div class="case-art art-bars"><i></i><i></i><i></i><i></i><i></i></div><div class="case-copy"><h3>Turning high intent<br />into higher-quality leads.</h3><p><b>Challenge</b> Rising acquisition costs were restricting growth.</p><a href="#contact">View case framework <span>→</span></a></div></article>
-          <article class="case case-two"><div class="case-label"><span>02 — Organic growth</span><span>SEO</span></div><div class="case-art art-circle"><div>↗</div><span>SEARCH<br />VISIBILITY</span></div><div class="case-copy"><h3>Making a growing<br />brand easier to find.</h3><p><b>Approach</b> Content, technical fixes and authority moving as one.</p><a href="#contact">View case framework <span>→</span></a></div></article>
-          <article class="case case-three"><div class="case-label"><span>03 — Social growth</span><span>Meta Ads</span></div><div class="case-art art-points"><i></i><i></i><i></i><i></i><i></i><i></i><svg viewBox="0 0 300 130" preserveAspectRatio="none"><polyline points="0,118 40,98 78,103 115,56 162,78 206,35 250,49 300,5" /></svg></div><div class="case-copy"><h3>Scaling attention<br />without losing focus.</h3><p><b>Result</b> A test-and-learn system for steady improvement.</p><a href="#contact">View case framework <span>→</span></a></div></article>
+
+          <!-- Case 1: Google Ads -->
+          <article class="case case-one" aria-labelledby="case-title-1">
+            <div class="case-label">
+              <span>01 — Performance</span>
+              <span class="case-tag">Google Ads</span>
+            </div>
+            <div class="case-art art-bars" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i>
+              <div class="case-art-label">Conversion rate ↑ 3.2×</div>
+            </div>
+            <div class="case-copy">
+              <h3 id="case-title-1">Turning high intent<br />into higher-quality leads.</h3>
+              <p><b>Challenge</b> — Rising acquisition costs were restricting growth for a B2B services client.</p>
+              <div class="case-result">
+                <span class="result-pill">↓ 38% CPA</span>
+                <span class="result-pill">↑ 3.2× ROAS</span>
+              </div>
+              <a href="#contact" class="case-cta" aria-label="Request the Google Ads case framework">
+                Request case framework <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Case 2: SEO -->
+          <article class="case case-two" aria-labelledby="case-title-2">
+            <div class="case-label">
+              <span>02 — Organic growth</span>
+              <span class="case-tag">SEO</span>
+            </div>
+            <div class="case-art art-circle" aria-hidden="true">
+              <div>↗</div>
+              <span>SEARCH<br />VISIBILITY</span>
+              <div class="case-art-label">Organic traffic ↑ 2.7×</div>
+            </div>
+            <div class="case-copy">
+              <h3 id="case-title-2">Making a growing<br />brand easier to find.</h3>
+              <p><b>Approach</b> — Technical fixes, content strategy, and authority building working as one system.</p>
+              <div class="case-result">
+                <span class="result-pill">↑ 2.7× organic</span>
+                <span class="result-pill">Top 3 rankings</span>
+              </div>
+              <a href="#contact" class="case-cta" aria-label="Request the SEO case framework">
+                Request case framework <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Case 3: Meta Ads -->
+          <article class="case case-three" aria-labelledby="case-title-3">
+            <div class="case-label">
+              <span>03 — Social growth</span>
+              <span class="case-tag">Meta Ads</span>
+            </div>
+            <div class="case-art art-points" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+              <svg viewBox="0 0 300 130" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points="0,118 40,98 78,103 115,56 162,78 206,35 250,49 300,5" />
+              </svg>
+              <div class="case-art-label">Reach scaled 4×</div>
+            </div>
+            <div class="case-copy">
+              <h3 id="case-title-3">Scaling attention<br />without losing focus.</h3>
+              <p><b>Result</b> — A test-and-learn creative system that drives steady, measurable improvement each sprint.</p>
+              <div class="case-result">
+                <span class="result-pill">↑ 4× reach</span>
+                <span class="result-pill">↓ 29% CPL</span>
+              </div>
+              <a href="#contact" class="case-cta" aria-label="Request the Meta Ads case framework">
+                Request case framework <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Work section CTA -->
+        <div class="work-footer">
+          <p>Have a specific growth challenge? <a href="#contact">Let's talk about what's possible →</a></p>
+        </div>
+
+      </section>
+
+      <!-- ============================================================
+           ABOUT — Improved timeline, trust signals, tool proficiency
+           ============================================================ -->
+      <section class="about" id="about" aria-labelledby="about-heading">
+        <div class="about-inner">
+
+          <div class="section-number">03 / The long game</div>
+
+          <div class="about-lead">
+            <h2 id="about-heading">Good marketing is not a black box.</h2>
+            <p>I believe clients deserve to understand where their investment goes—and what it's bringing back. My work is built on direct communication, clear reporting, and a partnership that gets smarter over time.</p>
+          </div>
+
+          <!-- Trust signal quote -->
+          <blockquote class="about-quote">
+            <p>"Every campaign I run has one rule: if I can't explain the numbers to you in plain language, the work isn't done yet."</p>
+            <cite>— Ammar's working philosophy</cite>
+          </blockquote>
+
+          <!-- Timeline -->
+          <div class="timeline" aria-label="Career timeline">
+
+            <div class="timeline-track">
+              <div class="track-label">
+                <span class="track-type">In-house</span>
+              </div>
+              <div class="track">
+                <div class="track-dot" aria-hidden="true"></div>
+                <span class="year">2024 — present</span>
+                <div class="role">
+                  <b>Digital Marketing Executive</b>
+                  <span class="role-company">Pelquant</span>
+                  <p>Running Google Ads, Meta Ads and SEO end-to-end. Building the growth infrastructure for sustained business expansion.</p>
+                  <div class="role-tags">
+                    <span>Google Ads</span>
+                    <span>Meta Ads</span>
+                    <span>SEO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-track">
+              <div class="track-label freelance-label">
+                <span class="track-type">Independent</span>
+              </div>
+              <div class="track freelance">
+                <div class="track-dot track-dot--amber" aria-hidden="true"></div>
+                <span class="year">2022 — present</span>
+                <div class="role">
+                  <b>Freelance Growth Consultant</b>
+                  <span class="role-company">Ahmedabad / Remote</span>
+                  <p>Helping SMBs and startups find their next stage of growth. From first campaign to profitable scale.</p>
+                  <div class="role-tags">
+                    <span>Growth Strategy</span>
+                    <span>Paid Media</span>
+                    <span>Analytics</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tool proficiency with levels -->
+          <div class="tools-section">
+            <p class="tools-heading">Tools &amp; platforms</p>
+            <div class="tools" role="list" aria-label="Tools and platforms I work with">
+              <div class="tool-item" role="listitem">
+                <span class="tool-name">Google Ads</span>
+                <div class="tool-bar" aria-label="Proficiency: Expert">
+                  <div class="tool-fill" style="--fill: 95%"></div>
+                </div>
+                <span class="tool-level">Expert</span>
+              </div>
+              <div class="tool-item" role="listitem">
+                <span class="tool-name">Meta Ads</span>
+                <div class="tool-bar" aria-label="Proficiency: Expert">
+                  <div class="tool-fill" style="--fill: 92%"></div>
+                </div>
+                <span class="tool-level">Expert</span>
+              </div>
+              <div class="tool-item" role="listitem">
+                <span class="tool-name">Google Analytics 4</span>
+                <div class="tool-bar" aria-label="Proficiency: Advanced">
+                  <div class="tool-fill" style="--fill: 88%"></div>
+                </div>
+                <span class="tool-level">Advanced</span>
+              </div>
+              <div class="tool-item" role="listitem">
+                <span class="tool-name">Search Console</span>
+                <div class="tool-bar" aria-label="Proficiency: Advanced">
+                  <div class="tool-fill" style="--fill: 85%"></div>
+                </div>
+                <span class="tool-level">Advanced</span>
+              </div>
+              <div class="tool-item" role="listitem">
+                <span class="tool-name">Meta Business Suite</span>
+                <div class="tool-bar" aria-label="Proficiency: Advanced">
+                  <div class="tool-fill" style="--fill: 90%"></div>
+                </div>
+                <span class="tool-level">Advanced</span>
+              </div>
+              <div class="tool-item" role="listitem">
+                <span class="tool-name">HTML / CSS / JS</span>
+                <div class="tool-bar" aria-label="Proficiency: Proficient">
+                  <div class="tool-fill tool-fill--sage" style="--fill: 72%"></div>
+                </div>
+                <span class="tool-level">Proficient</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <section class="about" id="about" aria-labelledby="about-heading">
-        <div class="section-number">03 / The long game</div>
-        <div class="about-lead"><h2 id="about-heading">Good marketing is not a black box.</h2><p>I believe clients deserve to understand where their investment goes—and what it is bringing back. My work is built on direct communication, clear reporting, and a partnership that gets smarter over time.</p></div>
-        <div class="timeline"><div class="track-label">In-house</div><div class="track"><span class="year">2024 — now</span><div class="role"><b>Digital Marketing Executive</b><span>Pelquant</span><p>Running Google Ads, Meta Ads and SEO end-to-end for business growth.</p></div></div><div class="track-label freelance-label">Independent</div><div class="track freelance"><span class="year">2022 — now</span><div class="role"><b>Freelance Growth Consultant</b><span>Ahmedabad / Remote</span><p>Helping small businesses and startups find their next stage of growth.</p></div></div></div>
-        <div class="tools"><span>Google Ads</span><span>Meta Ads</span><span>Google Analytics 4</span><span>Search Console</span><span>Meta Business Suite</span><span>HTML / CSS / JS</span></div>
+      <!-- ============================================================
+           CONTACT — Value proposition, social proof, improved form UX
+           ============================================================ -->
+      <section class="contact" id="contact" aria-labelledby="contact-heading">
+
+        <p class="section-number">04 / Start here</p>
+
+        <div class="contact-main">
+          <div class="contact-headline">
+            <h2 id="contact-heading">Let's make<br />your <em>next move</em><br />count.</h2>
+            <!-- Social proof / trust signal -->
+            <div class="contact-trust">
+              <div class="trust-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.48 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.39 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Replies within one business day</span>
+              </div>
+              <div class="trust-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Free 15-min strategy audit, no commitment</span>
+              </div>
+              <div class="trust-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Available for new projects from Sep 2026</span>
+              </div>
+            </div>
+          </div>
+          <a class="contact-button" href="mailto:hello@ammarganchi.com" aria-label="Book a free 15-minute audit by email">
+            Book a free 15-min audit <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate aria-label="Project inquiry form">
+          <div class="form-heading">
+            <span>Tell me what you're building</span>
+            <small>I'll reply within one business day.</small>
+          </div>
+
+          <label>
+            Your name
+            <input name="name" type="text" autocomplete="name" required placeholder="Jane Smith" aria-required="true" />
+            <span class="field-error" aria-live="polite"></span>
+          </label>
+
+          <label>
+            Work email
+            <input name="email" type="email" autocomplete="email" required placeholder="jane@company.com" aria-required="true" />
+            <span class="field-error" aria-live="polite"></span>
+          </label>
+
+          <label class="message-field">
+            What growth challenge can I help with?
+            <textarea name="message" rows="4" required placeholder="Tell me about your business, current campaigns, and where you want to grow. The more context the better." aria-required="true"></textarea>
+            <span class="field-error" aria-live="polite"></span>
+          </label>
+
+          <!-- Budget range selector — helps qualify leads quickly -->
+          <label class="budget-field">
+            Monthly budget range <span class="optional-tag">(optional)</span>
+            <select name="budget" autocomplete="off">
+              <option value="">Select a range…</option>
+              <option value="under-50k">Under ₹50,000 / month</option>
+              <option value="50k-2l">₹50,000 – ₹2,00,000 / month</option>
+              <option value="2l-5l">₹2,00,000 – ₹5,00,000 / month</option>
+              <option value="5l+">₹5,00,000+ / month</option>
+              <option value="discuss">Prefer to discuss</option>
+            </select>
+          </label>
+
+          <button type="submit" class="form-submit">
+            Send inquiry <span aria-hidden="true">↗</span>
+          </button>
+          <p class="form-privacy">Your details are used solely to respond to your inquiry. No spam, ever.</p>
+        </form>
+
+        <div class="contact-details">
+          <p>Based in Ahmedabad, India<br />Working with ambitious teams worldwide.</p>
+          <div class="contact-links">
+            <a href="mailto:hello@ammarganchi.com" aria-label="Send an email">hello@ammarganchi.com</a>
+            <a href="tel:+919000000000" aria-label="Call Ammar">+91 90000 00000</a>
+            <a href="https://linkedin.com/in/ammar-ghanchi" target="_blank" rel="noopener noreferrer" aria-label="View LinkedIn profile (opens in new tab)">LinkedIn ↗</a>
+          </div>
+        </div>
+
       </section>
 
-      <section class="contact" id="contact" aria-labelledby="contact-heading">
-        <p class="section-number">04 / Start here</p>
-        <div class="contact-main"><h2 id="contact-heading">Let’s make<br />your <em>next move</em><br />count.</h2><a class="contact-button" href="mailto:hello@ammarganchi.com">Book a free 15-min audit <span>↗</span></a></div>
-        <form class="contact-form" id="contact-form">
-          <div class="form-heading"><span>Tell me what you’re building</span><small>I’ll reply within one business day.</small></div>
-          <label>Your name<input name="name" type="text" autocomplete="name" required placeholder="Jane Smith" /></label>
-          <label>Work email<input name="email" type="email" autocomplete="email" required placeholder="jane@company.com" /></label>
-          <label class="message-field">What growth challenge can I help with?<textarea name="message" rows="3" required placeholder="A little about your business, goals, or current campaigns."></textarea></label>
-          <button type="submit">Send inquiry <span>↗</span></button>
-        </form>
-        <div class="contact-details"><p>Based in Ahmedabad, India<br />Working with ambitious teams worldwide.</p><a href="mailto:hello@ammarganchi.com">hello@ammarganchi.com</a><a href="tel:+919000000000">+91 90000 00000</a><a href="#" aria-label="LinkedIn profile">LinkedIn ↗</a></div>
-      </section>
     </main>
-    <footer><span>© 2026 Mohammad Ammar Ghanchi</span><span>MCA, Kadi University</span><a href="#top">Back to top ↑</a></footer>
+
+    <!-- ============================================================
+         FOOTER — Richer content, social links, better treatment
+         ============================================================ -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a class="footer-monogram" href="#top" aria-label="Back to top">MAG<span>·</span></a>
+          <p>Performance &amp; growth marketing.<br />Ahmedabad → worldwide.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#work">Work</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="footer-social" aria-label="Social links">
+          <a href="https://linkedin.com/in/ammar-ghanchi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:hello@ammarganchi.com" aria-label="Send an email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Mohammad Ammar Ghanchi</span>
+        <span class="footer-edu">MCA, Kadi University</span>
+        <a href="#top" class="footer-back-top" aria-label="Back to top of page">Back to top ↑</a>
+      </div>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

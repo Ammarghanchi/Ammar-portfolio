@@ -1,33 +1,271 @@
-/* A restrained, editorial colour system for a professional marketing portfolio. */
+/* ================================================
+   THEME — Refined Editorial Colors + Design Tokens
+   2026 professional palette
+   ================================================ */
+
 :root {
+  /* Primary Palette */
   --navy: #081b31;
   --amber: #c84d2d;
   --cream: #f4f0e7;
   --sage: #5e806f;
   --ink: #18212b;
-}
-.hero-meta { color: #b9c4d0; }
-.hero-bottom p, .section-intro > p:last-child { color: #c8d1da; }
-.chart-labels { color: #aeb9c5; }
-.hero .chart-motif { border-bottom-color: #7f8da055; }
-.hero .chart-motif span { background: #98a8b8; }
-.hero-portrait { background: #ebe5d9; border-color: #f4f0e7; box-shadow: 0 18px 40px rgba(0,0,0,.2); }
-.about { background: #dde3d8; }
-.contact { background: #c84d2d; }
-.contact-form { background: #f4f0e7; }
-.contact-form input, .contact-form textarea { background: #fffdf8; border-color: #c6bba9; }
-.contact-form input::placeholder, .contact-form textarea::placeholder { color: #718093; }
-.contact-form button:hover { background: #173657; }
 
-/* Consistent supporting colours across the rest of the interface. */
-.proof-strip, .proof-strip div { border-color: #d7d0c3; }
-.accordion details { border-color: #42546a; }
-.accordion-answer { color: #c8d1da; }
-.chart-motif { border-bottom-color: #78889a66; }
-.chart-motif span { background: #a2afbc; }
-.about .timeline .track, .about .tools { border-color: #94a598; }
-.year { color: #587462; }
-.contact-details { border-color: #963a23; }
-.contact-details a { border-color: #963a23; }
-.form-heading { border-color: #cec4b4; }
-.contact-form input:focus, .contact-form textarea:focus { border-color: #081b31; box-shadow: 0 0 0 2px #081b3122; }
+  /* Extended Palette */
+  --navy-light: #0f2a4a;
+  --navy-hover: #173657;
+  --amber-dark: #963a23;
+  --amber-muted: #c84d2d;
+  --cream-warm: #fffdf8;
+  --cream-dark: #f0ece3;
+  --sage-muted: #587462;
+  --sage-light: #dde3d8;
+
+  /* Text Colors */
+  --text-primary: #18212b;
+  --text-secondary: #444444;
+  --text-muted: #555555;
+  --text-dim: #666666;
+  --text-faint: #888888;
+
+  /* Light Text (on dark backgrounds) */
+  --text-light: #c8d1da;
+  --text-light-muted: #a8b8c8;
+  --text-light-faint: #98a8b8;
+  --text-hero-sub: #d5dbe3;
+
+  /* Borders */
+  --border-light: #d7d0c3;
+  --border-medium: #c8c0b0;
+  --border-input: #b8b0a1;
+  --border-dark: #42546a;
+  --border-sage: #94a598;
+  --border-contact: rgba(255, 255, 255, 0.2);
+
+  /* Surface Colors */
+  --surface-form: #f4f0e7;
+  --surface-input: #fffdf8;
+  --surface-case-art: #eee9dd;
+  --surface-tag: rgba(255, 255, 255, 0.55);
+
+  /* Interactive */
+  --focus-ring: rgba(8, 27, 49, 0.08);
+  --shadow-soft: rgba(0, 0, 0, 0.16);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
+}
+
+/* ================================================
+   HERO ELEMENTS
+   ================================================ */
+
+.hero-meta {
+  color: #b9c4d0;
+}
+
+.hero-bottom p,
+.section-intro > p:last-child {
+  color: #c8d1da;
+}
+
+.chart-labels {
+  color: #aeb9c5;
+}
+
+.hero .chart-motif {
+  border-bottom-color: #7f8da055;
+}
+
+.hero .chart-motif span {
+  background: #98a8b8;
+}
+
+.hero-portrait {
+  background: #ebe5d9;
+  border-color: var(--cream);
+  box-shadow: 0 var(--space-xl) var(--space-3xl) var(--shadow-medium);
+}
+
+/* ================================================
+   SECTIONS
+   ================================================ */
+
+.about {
+  background: #dde3d8;
+}
+
+/* ---- Contact section: deep charcoal-navy, no orange ---- */
+.contact {
+  background: #0d1f35;
+  color: var(--cream);
+}
+
+.contact .section-number {
+  color: rgba(255, 255, 255, 0.35) !important;
+  opacity: 1;
+}
+
+.contact-main h2 {
+  color: var(--cream) !important;
+}
+
+.contact-main h2 em {
+  color: #6db89a !important;   /* muted teal accent — no orange */
+}
+
+.contact-trust .trust-row {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* CTA button: sage-teal on dark — stands out without orange */
+.contact-button {
+  background: #3d7a60 !important;
+  color: #fff !important;
+}
+
+.contact-button:hover {
+  background: #2f6050 !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35) !important;
+}
+
+.contact-details {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.contact-details p {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.contact-links a {
+  color: rgba(255, 255, 255, 0.7) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.contact-links a:hover {
+  color: #fff !important;
+  border-bottom-color: #6db89a !important;
+}
+
+/* ================================================
+   CONTACT FORM — dark glass card
+   ================================================ */
+
+.contact-form {
+  background: #122843 !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+.form-heading {
+  color: var(--cream) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.form-heading small {
+  color: rgba(255, 255, 255, 0.38) !important;
+}
+
+.contact-form label {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  background: #0d1f35 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--cream) !important;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: #6db89a !important;
+  box-shadow: 0 0 0 3px rgba(109, 184, 154, 0.15) !important;
+}
+
+.contact-form input[aria-invalid="true"],
+.contact-form textarea[aria-invalid="true"] {
+  border-color: #e07070 !important;
+  box-shadow: 0 0 0 3px rgba(224, 112, 112, 0.1) !important;
+}
+
+/* Submit button: teal, not orange */
+.form-submit {
+  background: #3d7a60 !important;
+  color: #fff !important;
+}
+
+.form-submit:hover {
+  background: #2f6050 !important;
+}
+
+.form-privacy {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.contact-form button:hover {
+  background: #2f6050;
+}
+
+/* ================================================
+   SUPPORTING ELEMENTS
+   ================================================ */
+
+.proof-strip,
+.proof-item {
+  border-color: var(--border-light);
+}
+
+.accordion details {
+  border-color: var(--border-dark);
+}
+
+.accordion-answer {
+  color: var(--text-light);
+}
+
+.chart-motif {
+  border-bottom-color: #78889a66;
+}
+
+.chart-motif span {
+  background: #a2afbc;
+}
+
+.timeline-track,
+.tools-section {
+  border-color: var(--border-sage);
+}
+
+.track-label {
+  border-color: var(--border-sage);
+}
+
+.year {
+  color: var(--sage-muted);
+}
+
+.contact-details {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-heading {
+  border-color: var(--border-medium);
+}
+
+/* ================================================
+   FIELD ERRORS
+   ================================================ */
+
+.field-error {
+  display: none;
+  color: #c0392b;
+  font-size: 11px;
+  font-family: var(--mono);
+  margin-top: 4px;
+}

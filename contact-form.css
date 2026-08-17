@@ -1,1 +1,233 @@
-.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:23px 30px;margin:70px 0 0;padding:35px;background:var(--cream);color:var(--navy);border:0}.form-heading{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;padding-bottom:17px;border-bottom:1px solid #c8c0b0;font-family:var(--mono);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}.form-heading small{font:12px var(--sans);text-transform:none;letter-spacing:0;color:#425269}.contact-form label{display:flex;flex-direction:column;gap:9px;font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}.contact-form input,.contact-form textarea{width:100%;border:1px solid #b8b0a1;border-radius:0;outline:0;background:#fffdf7;padding:12px 13px;color:var(--navy);font:15px var(--sans);line-height:1.4;resize:vertical}.contact-form input::placeholder,.contact-form textarea::placeholder{color:#697386}.contact-form input:focus,.contact-form textarea:focus{border-color:var(--navy);box-shadow:0 0 0 2px #0b1f3a22}.message-field{grid-column:1/-1}.contact-form button{justify-self:start;border:0;background:var(--navy);color:var(--cream);padding:15px 21px;font:11px var(--mono);text-transform:uppercase;letter-spacing:.04em;cursor:pointer}.contact-form button span{font-size:16px;margin-left:9px}.contact-form button:hover{background:#17365e}@media(max-width:760px){.contact-form{grid-template-columns:1fr;margin-top:52px;padding:23px;gap:19px}.form-heading{display:block;line-height:1.7}.form-heading small{display:block;font-size:12px}.message-field{grid-column:auto}}
+/* ================================================
+   CONTACT FORM — Clean Spacing + Better UX
+   2026: inline validation, budget select, privacy note
+   ================================================ */
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl) var(--space-2xl);
+  margin: 0;
+  padding: var(--space-2xl);
+  background: var(--surface-form);
+  color: var(--navy);
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Form heading row */
+.form-heading {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border-medium);
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+}
+
+.form-heading small {
+  font: var(--text-xs) var(--sans);
+  text-transform: none;
+  letter-spacing: 0;
+  color: #425269;
+  font-weight: 400;
+}
+
+/* Labels */
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.optional-tag {
+  font-weight: 400;
+  text-transform: none;
+  color: var(--text-faint);
+  letter-spacing: 0;
+  font-family: var(--sans);
+  font-size: 10px;
+}
+
+/* Inputs & Textarea */
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  border: 1px solid var(--border-input);
+  border-radius: 6px;
+  outline: 0;
+  background: var(--surface-input);
+  padding: var(--space-md) var(--space-lg);
+  color: var(--navy);
+  font: var(--text-base) var(--sans);
+  line-height: 1.5;
+  resize: vertical;
+  transition: border-color var(--duration-normal) ease,
+              box-shadow var(--duration-normal) ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #8a9aaa;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* Valid state */
+.contact-form input.touched:valid,
+.contact-form textarea.touched:valid {
+  border-color: var(--sage);
+}
+
+/* Invalid state */
+.contact-form input[aria-invalid="true"],
+.contact-form textarea[aria-invalid="true"] {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.07);
+}
+
+/* Select — custom arrow */
+.contact-form select {
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-lg) center;
+  padding-right: calc(var(--space-lg) + 20px);
+  cursor: pointer;
+}
+
+/* Field layout — full width on spanning fields */
+.message-field,
+.budget-field {
+  grid-column: 1 / -1;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+}
+
+/* Inline field error */
+.field-error {
+  display: none;
+  color: #c0392b;
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-top: 3px;
+}
+
+/* Submit button */
+.form-submit {
+  justify-self: start;
+  grid-column: 1;
+  border: 0;
+  background: var(--navy);
+  color: var(--cream);
+  padding: var(--space-md) var(--space-xl);
+  font: var(--text-sm) var(--sans);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background var(--duration-normal) ease,
+              transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.form-submit span {
+  font-size: var(--text-lg);
+  display: inline-block;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.form-submit:hover {
+  background: var(--navy-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.form-submit:hover span {
+  transform: translateX(2px) translateY(-2px);
+}
+
+.form-submit:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+.form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+  transform: none;
+}
+
+/* Privacy note */
+.form-privacy {
+  grid-column: 2;
+  font-size: 10px;
+  color: var(--text-faint);
+  font-family: var(--mono);
+  align-self: center;
+  margin: 0;
+  max-width: none;
+  line-height: 1.5;
+}
+
+/* ================================================
+   RESPONSIVE — Mobile
+   ================================================ */
+
+@media (max-width: 760px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+    padding: var(--space-xl);
+    gap: var(--space-lg);
+  }
+
+  .form-heading {
+    display: block;
+    line-height: 1.7;
+  }
+
+  .form-heading small {
+    display: block;
+    margin-top: var(--space-xs);
+  }
+
+  .message-field,
+  .budget-field {
+    grid-column: auto;
+  }
+
+  .form-submit {
+    grid-column: auto;
+  }
+
+  .form-privacy {
+    grid-column: auto;
+  }
+}
