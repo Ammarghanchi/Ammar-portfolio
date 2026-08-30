@@ -10,6 +10,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Final hero spacing QA: keep the content visually close to the header without crowding it. */
+    .hero{padding-top:clamp(34px,4.2vw,64px)!important;padding-bottom:28px!important;}
+    .hero-copy,.hero-visual{transform:translateY(-18px);}
+    .hero-visual{min-height:520px;}
+    .hero-stats{margin-top:26px;}
+    @media (max-width:1100px){
+      .hero{padding-top:38px!important;}
+      .hero-copy,.hero-visual{transform:none;}
+      .hero-visual{min-height:470px;}
+      .hero-stats{margin-top:30px;}
+    }
+    @media (max-width:760px){
+      .hero{padding-top:32px!important;padding-bottom:24px!important;}
+      .hero-copy,.hero-visual{transform:none;}
+      .hero-visual{min-height:420px;}
+      .hero-stats{margin-top:24px;}
+    }
+  </style>
 </head>
 <body>
   <div class="cursor" aria-hidden="true"><span></span></div>
