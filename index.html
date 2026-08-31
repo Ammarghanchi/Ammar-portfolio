@@ -13,6 +13,11 @@
   <style>
     .hero h1{font-size:clamp(3.5rem,6.2vw,6.8rem)!important;line-height:.94!important;white-space:nowrap!important;letter-spacing:-.045em!important}
     @media(max-width:760px){.hero h1{font-size:clamp(3rem,12vw,4.8rem)!important;white-space:normal!important}}
+    /* Keep a deliberate, premium breathing space between the sticky header and About section. */
+    #about{padding-top:clamp(112px,9vw,148px)!important;padding-bottom:clamp(96px,8vw,132px)!important;scroll-margin-top:82px}
+    #about .about-image,#about .about-copy{align-self:center}
+    @media(max-width:900px){#about{padding-top:88px!important;padding-bottom:88px!important}}
+    @media(max-width:760px){#about{padding-top:72px!important;padding-bottom:72px!important}}
   </style>
 </head>
 <body>
