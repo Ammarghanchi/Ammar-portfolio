@@ -361,3 +361,123 @@ body{background:var(--bg);color:var(--ink)}
   #work .project-art{height:260px}
   #work .project-meta{padding:22px 20px 24px}
 }
+
+
+/* =========================================================
+   MOBILE UX PASS — compact, touch-friendly, no horizontal overflow
+   ========================================================= */
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{overflow-x:hidden}
+
+@media (max-width:760px){
+  .cursor,.progress{display:none!important}
+  .nav{height:70px;padding:0 18px;position:sticky;top:0;z-index:100}
+  .nav .brand{font-size:18px;letter-spacing:.08em}
+  .desktop-nav,.nav-cta{display:none!important}
+  .menu-toggle{display:flex!important;width:42px;height:42px;margin-left:auto;align-items:center;justify-content:center;flex-direction:column;gap:6px;border:1px solid var(--line);background:transparent;border-radius:2px}
+  .menu-toggle span{display:block;width:18px;height:1.5px;background:var(--ink);transition:transform .25s ease}
+  .mobile-menu{top:70px!important;min-height:calc(100svh - 70px);padding:34px 20px 40px;gap:0!important}
+  .mobile-menu a{font-size:clamp(2rem,9vw,3rem)!important;line-height:1.05;padding:14px 0!important;border-bottom:1px solid rgba(248,245,238,.14)}
+
+  .hero{min-height:auto!important;padding:58px 20px 30px!important;display:flex;flex-direction:column}
+  .hero-copy{order:1}
+  .hero-visual{order:2;margin-top:44px!important}
+  .hero-stats{order:3;margin-top:34px!important;grid-template-columns:1fr 1fr!important}
+  .scroll-cue{order:4;margin-top:30px}
+  .eyebrow{font-size:9px!important;margin-bottom:18px!important}
+  .hero h1{font-size:clamp(3.15rem,14vw,4.7rem)!important;line-height:.91!important;letter-spacing:-.065em!important;margin-bottom:24px!important}
+  .hero-description{font-size:14px!important;line-height:1.65!important;max-width:100%!important}
+  .hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:10px!important;margin-top:26px!important}
+  .hero-actions .button{width:100%;min-height:52px;justify-content:center;padding:14px 16px}
+  .portrait-wrap{width:min(76vw,300px)!important;margin:0 auto!important}
+  .hero-services{grid-template-columns:1fr 1fr!important;gap:8px!important;margin-top:18px!important}
+  .hero-services span{font-size:9px!important;padding:10px 8px!important}
+  .floating-card{display:none!important}
+  .hero-stats{border-top:1px solid var(--dark-line)!important;border-left:0!important}
+  .hero-stats div{min-height:92px;padding:16px 12px!important}
+  .hero-stats strong{font-size:25px!important}
+  .hero-stats small{font-size:7px!important;line-height:1.35}
+
+  .marquee{overflow:hidden;padding:13px 0!important}
+  .marquee-track{white-space:nowrap;min-width:max-content}
+
+  .section{padding:82px 20px!important}
+  .section-head{margin-bottom:38px!important}
+  .section-head h2{font-size:clamp(2.7rem,12vw,4rem)!important;line-height:.94!important;letter-spacing:-.06em!important}
+  .section-head p{font-size:13px!important;line-height:1.7!important;margin-top:20px!important}
+  .section-index{font-size:8px!important}
+
+  .metrics{grid-template-columns:1fr 1fr!important}
+  .metric{padding:24px 16px!important;min-height:150px}
+  .metric strong{font-size:34px!important}
+  .metric span{font-size:10px!important;line-height:1.4}
+  .metric small{font-size:7px!important;margin-top:12px}
+
+  #work{padding-top:84px!important}
+  #work .filters{display:flex!important;overflow-x:auto!important;flex-wrap:nowrap!important;gap:8px!important;margin:0 -20px 26px!important;padding:0 20px 14px!important;scrollbar-width:none}
+  #work .filters::-webkit-scrollbar{display:none}
+  #work .filter{flex:0 0 auto!important;min-height:38px;padding:9px 13px!important;font-size:8px!important;white-space:nowrap}
+  #work .projects{grid-template-columns:1fr!important;gap:16px!important}
+  #work .project{width:100%;min-width:0}
+  #work .project-art{height:220px!important}
+  #work .project-meta{padding:20px!important;min-height:0!important}
+  #work .project-meta>span{font-size:7px!important}
+  #work .project-meta b{font-size:22px!important;line-height:1.08!important;max-width:88%!important}
+  #work .project-meta p{font-size:11px!important;line-height:1.55!important}
+  #work .case-metrics{margin-top:18px!important}
+  #work .case-metrics div{padding:13px 10px 13px 0!important}
+  #work .case-metrics div:last-child{padding-left:12px!important}
+  #work .case-metrics strong{font-size:20px!important}
+  #work .case-metrics small{font-size:6.5px!important}
+  #work .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px!important;padding-right:34px}
+  #work .tags i{font-size:7px!important;padding:6px 7px!important}
+  #work .project-arrow{width:36px!important;height:36px!important;right:14px!important;bottom:14px!important}
+  #work .demo-badge{font-size:6.5px!important;top:12px!important;left:12px!important}
+  #work .demo-note{margin-top:22px!important;padding:13px!important}
+  #work .demo-note p{font-size:9px!important;line-height:1.55!important}
+
+  .services,.process,.experience{padding:82px 20px!important}
+  .service-list,.timeline,.process-grid{grid-template-columns:1fr!important}
+  .service,.timeline-item,.process-grid article{padding:22px 0!important}
+  .service h3,.timeline-item h3,.process-grid h3{font-size:20px!important}
+  .service p,.timeline-item p,.process-grid p{font-size:11px!important;line-height:1.65!important}
+
+  .stack{padding:78px 20px!important}
+  .stack h2{font-size:clamp(2.8rem,12vw,4rem)!important;line-height:.94!important}
+  .tool-grid{grid-template-columns:1fr 1fr!important}
+  .tool-grid span{padding:15px 10px!important;font-size:9px!important}
+
+  #about{padding:72px 20px 76px!important;scroll-margin-top:70px}
+  .about{overflow:hidden}
+  .about-image{margin-bottom:34px!important}
+  .about-image img{width:100%!important;max-width:360px;margin:0 auto;display:block}
+  .about h2{font-size:clamp(2.8rem,12vw,4rem)!important;line-height:.94!important}
+  .about-copy>p{font-size:12px!important;line-height:1.7!important}
+  .about-copy blockquote{font-size:15px!important;line-height:1.45!important;padding-left:16px!important;margin-top:24px!important}
+
+  .contact{padding:82px 20px 64px!important;overflow:hidden}
+  .contact h2{font-size:clamp(3rem,13vw,4.5rem)!important;line-height:.9!important}
+  .contact-intro>p{font-size:12px!important;line-height:1.7!important}
+  .big-mail{display:block!important;font-size:clamp(1.5rem,7vw,2.4rem)!important;word-break:break-word!important;line-height:1.15!important;margin:28px 0!important}
+  .contact-form{margin-top:36px!important}
+  .contact-form input,.contact-form textarea{font-size:13px!important;padding:14px 0!important}
+  .contact-form textarea{min-height:110px!important}
+
+  .footer{padding:28px 20px!important;display:flex!important;flex-direction:column!important;gap:12px!important}
+  .footer p,.footer small{font-size:8px!important}
+
+  .case-modal{padding:8px!important}
+  .case-modal-panel{width:100%!important;max-height:94svh!important;padding:54px 18px 22px!important}
+  .case-modal-close{right:12px!important;top:10px!important;width:40px;height:40px}
+  .case-modal-panel h2{font-size:clamp(2.3rem,11vw,3.7rem)!important}
+  .case-modal-grid,.case-results{grid-template-columns:1fr!important;gap:0!important}
+  .case-modal-grid>div{padding:17px!important}
+  .case-results div{border-right:0!important;border-bottom:1px solid rgba(248,245,238,.1)!important;padding:16px!important}
+  .case-results div:last-child{border-bottom:0!important}
+  .case-results strong{font-size:25px!important}
+  .case-modal-footer{gap:12px!important}
+}
+
+@media (min-width:761px){
+  .menu-toggle{display:none}
+}
