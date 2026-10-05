@@ -160,3 +160,25 @@
   #work .project-meta{min-height:0;padding:22px 20px 24px}
   #work .project-meta b{font-size:23px}
 }
+
+
+/* Final reference-style project grid refinement */
+@media (min-width:1200px){
+  #work .projects{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  #work .project-art{height:250px}
+  #work .project-meta{min-height:300px;padding:22px 22px 24px}
+  #work .project-meta b{font-size:22px}
+  #work .project-meta p{font-size:11px;line-height:1.55}
+  #work .case-metrics{margin-top:18px}
+  #work .case-metrics strong{font-size:21px}
+  #work .tags{margin-top:14px}
+}
+#work .project-arrow{z-index:3}
+#work .project{overflow:hidden}
+#work .project-art:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.02),transparent 55%,rgba(0,0,0,.08));
+}
