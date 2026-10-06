@@ -481,3 +481,91 @@ body{overflow-x:hidden}
 @media (min-width:761px){
   .menu-toggle{display:none}
 }
+
+
+/* SECOND SECTION — editorial proof/stat redesign */
+#proof{
+  background:#f3efe7;
+  padding-top:clamp(110px,11vw,170px);
+  padding-bottom:clamp(110px,11vw,170px);
+}
+#proof .section-head{
+  display:grid;
+  grid-template-columns:minmax(140px,.7fr) minmax(360px,1.5fr) minmax(260px,1fr);
+  gap:36px;
+  align-items:end;
+  margin-bottom:72px;
+}
+#proof .section-head .section-index{
+  align-self:start;
+  padding-top:10px;
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:9px;
+}
+#proof .section-head h2{
+  margin:0;
+  font-size:clamp(3.8rem,6.5vw,7rem);
+  line-height:.88;
+  letter-spacing:-.065em;
+}
+#proof .section-head p{
+  margin:0 0 4px;
+  max-width:430px;
+  font-size:13px;
+  line-height:1.8;
+}
+#proof .metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+#proof .metric{
+  min-height:245px;
+  padding:30px 30px 28px 0;
+  border-right:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+#proof .metric:not(:first-child){padding-left:30px}
+#proof .metric:last-child{border-right:0}
+#proof .metric strong{
+  font-size:clamp(3rem,4.5vw,5rem);
+  line-height:.9;
+  letter-spacing:-.07em;
+}
+#proof .metric strong span{color:var(--accent)}
+#proof .metric span{
+  font-size:12px;
+  line-height:1.45;
+  color:#596170;
+}
+#proof .metric small{
+  font-family:var(--mono);
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:#858b95;
+}
+@media(max-width:900px){
+  #proof .section-head{grid-template-columns:1fr;gap:18px}
+  #proof .section-head p{max-width:600px}
+  #proof .metrics{grid-template-columns:1fr 1fr}
+  #proof .metric:nth-child(2){border-right:0}
+  #proof .metric:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:760px){
+  #proof{padding-top:78px!important;padding-bottom:78px!important}
+  #proof .section-head{margin-bottom:42px!important}
+  #proof .section-head h2{font-size:clamp(3rem,13vw,4.5rem)!important}
+  #proof .metrics{grid-template-columns:1fr 1fr!important}
+  #proof .metric,#proof .metric:not(:first-child){min-height:155px;padding:20px 15px!important}
+  #proof .metric:nth-child(2){border-right:0}
+  #proof .metric:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  #proof .metric strong{font-size:34px!important}
+  #proof .metric span{font-size:9px!important}
+  #proof .metric small{font-size:6.5px!important}
+}
