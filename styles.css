@@ -237,7 +237,7 @@ body{background:var(--bg);color:var(--ink)}
 .button-ghost{border-color:rgba(248,245,238,.28)}
 .portrait-wrap{border-radius:0}
 .portrait-wrap:before{border-color:rgba(248,245,238,.28)}
-.portrait-wrap img{filter:saturate(.82) contrast(1.03)}
+.portrait-wrap img{filter:none;image-rendering:auto;-webkit-font-smoothing:antialiased}
 .hero-stats{border-color:var(--dark-line);background:rgba(255,255,255,.025)}
 .hero-stats div{border-color:var(--dark-line)}
 .stat-icon{border-color:rgba(239,107,61,.45);color:var(--accent)}
