@@ -850,3 +850,27 @@ body{overflow-x:hidden}
   #work .filter:nth-child(3){border-right:1px solid rgba(16,24,39,.13)!important}
   #work .filter:nth-child(even){border-right:0!important}
 }
+
+
+/* Selected Work background matched to Section 2 */
+#work{
+  background:#0d1522!important;
+  color:#f7f4ed!important;
+}
+#work .section-head h2{color:#f7f4ed!important}
+#work .section-head p{color:#aeb7c5!important}
+#work .section-head .section-index{color:#8e98a8!important}
+#work .filters{
+  border-top-color:rgba(248,245,238,.14)!important;
+  border-bottom-color:rgba(248,245,238,.14)!important;
+}
+#work .filter{
+  color:#aeb7c5!important;
+  border-right-color:rgba(248,245,238,.14)!important;
+}
+#work .filter:first-child{border-left-color:rgba(248,245,238,.14)!important}
+#work .filter.active{background:#f2673c!important;color:#0d1522!important}
+#work .filter:hover:not(.active){background:rgba(242,103,60,.14)!important;color:#fff!important}
+@media(max-width:760px){
+  #work .filter:nth-child(3){border-right-color:rgba(248,245,238,.14)!important}
+}
