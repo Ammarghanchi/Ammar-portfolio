@@ -19,6 +19,124 @@
     @media(max-width:900px){#about{padding-top:56px!important;padding-bottom:88px!important}}
     @media(max-width:760px){#about{padding-top:48px!important;padding-bottom:72px!important}}
   </style>
+
+
+/* SERVICES — premium showcase */
+.services{
+  position:relative;
+  overflow:hidden;
+  background:#101827!important;
+  color:#f7f4ed;
+  padding-top:clamp(100px,10vw,150px)!important;
+  padding-bottom:clamp(90px,9vw,130px)!important;
+}
+.services:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 88% 18%,rgba(234,111,47,.14),transparent 27%),
+             linear-gradient(135deg,rgba(255,255,255,.025),transparent 45%);
+  pointer-events:none;
+}
+.services-wrap{position:relative;z-index:1}
+.services .section-head{
+  display:grid;
+  grid-template-columns:minmax(130px,.65fr) minmax(360px,1.35fr) minmax(260px,1fr);
+  gap:36px;
+  align-items:end;
+  margin-bottom:64px;
+}
+.services .section-head .section-index{
+  color:#9aa4b3;
+  align-self:start;
+  padding-top:10px;
+}
+.services .section-head h2{color:#f7f4ed;margin:0}
+.services .section-head h2 em{color:#ea6f2f;font-style:normal}
+.services .section-head p{color:#aeb6c2;margin:0 0 4px;line-height:1.8}
+.service-showcase{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+.service-card{
+  position:relative;
+  min-height:310px;
+  padding:28px 30px 25px;
+  border:1px solid rgba(248,245,238,.13);
+  background:#172131;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow:hidden;
+  transition:transform .3s ease,border-color .3s ease,background .3s ease;
+}
+.service-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(234,111,47,.65);
+  background:#1a2638;
+}
+.service-card-featured{
+  grid-column:span 2;
+  min-height:350px;
+  background:linear-gradient(135deg,#192638,#121c2b);
+  border-color:rgba(234,111,47,.38);
+}
+.service-card-featured:after{
+  content:"";
+  position:absolute;
+  width:230px;height:230px;
+  right:-80px;bottom:-100px;
+  border:1px solid rgba(234,111,47,.24);
+  border-radius:50%;
+  box-shadow:0 0 0 45px rgba(234,111,47,.025),0 0 0 90px rgba(234,111,47,.018);
+}
+.service-top{display:flex;justify-content:space-between;align-items:center}
+.service-top span{font-family:var(--mono);font-size:10px;color:#7f8a9b;letter-spacing:.12em}
+.service-top i{font-family:var(--mono);font-style:normal;font-size:7px;letter-spacing:.13em;color:#9da7b5}
+.service-content{max-width:650px;position:relative;z-index:2}
+.service-content h3{color:#f7f4ed!important;font-size:clamp(1.65rem,2.5vw,2.35rem)!important;letter-spacing:-.04em;margin:0 0 13px}
+.service-card:not(.service-card-featured) .service-content h3{font-size:1.55rem!important}
+.service-content p{color:#aeb6c2!important;font-size:12px!important;line-height:1.75!important;max-width:570px;margin:0}
+.service-outcome{display:flex;align-items:center;gap:14px;margin-top:30px}
+.service-outcome strong{font-size:42px;line-height:1;color:#ea6f2f;letter-spacing:-.06em}
+.service-outcome span{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#9da7b5}
+.service-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:25px;position:relative;z-index:2}
+.service-tags b{font-family:var(--mono);font-size:7px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#d6dbe2;border:1px solid rgba(248,245,238,.14);padding:7px 9px}
+.service-arrow{position:absolute;right:26px;bottom:24px;width:42px;height:42px;border:1px solid rgba(248,245,238,.15);display:grid;place-items:center;color:#ea6f2f;font-size:18px;z-index:2}
+.service-bottom{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(248,245,238,.1);padding-top:18px;margin-top:25px}
+.service-bottom span{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:#929dad}
+.service-bottom b{font-size:18px;color:#ea6f2f;font-weight:400}
+.services-note{
+  margin-top:24px;
+  padding-top:18px;
+  border-top:1px solid rgba(248,245,238,.12);
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+.services-note span,.services-note p{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em}
+.services-note span{color:#ea6f2f}
+.services-note p{color:#7f8998;margin:0}
+@media(max-width:900px){
+  .services .section-head{grid-template-columns:1fr;gap:18px}
+  .service-showcase{grid-template-columns:1fr}
+  .service-card-featured{grid-column:span 1}
+}
+@media(max-width:760px){
+  .services{padding-top:78px!important;padding-bottom:78px!important}
+  .services .section-head{margin-bottom:40px!important}
+  .service-showcase{gap:12px}
+  .service-card,.service-card-featured{min-height:285px;padding:22px 20px 20px}
+  .service-card-featured{min-height:330px}
+  .service-content h3,.service-card:not(.service-card-featured) .service-content h3{font-size:21px!important}
+  .service-content p{font-size:11px!important;line-height:1.65!important}
+  .service-tags{margin-top:20px}
+  .service-outcome strong{font-size:34px}
+  .services-note{display:block}
+  .services-note p{margin-top:10px}
+}
+
 </head>
 <body>
   <div class="cursor" aria-hidden="true"><span></span></div><div class="progress" aria-hidden="true"><span></span></div><div class="grain" aria-hidden="true"></div>
@@ -76,7 +194,71 @@
       </div>
       <div class="demo-note reveal"><span>ⓘ</span><p><strong>Portfolio demo note:</strong> These are illustrative case studies created to demonstrate my strategy and presentation style. Metrics are sample figures and are not represented as actual client results.</p></div>
     </section>
-    <section class="services section" id="services"><div class="section-head reveal"><span class="section-index">03 / Services</span><h2>The levers that<br /><em>move the needle.</em></h2><p>Strategy and execution across the channels that matter most to acquisition and growth.</p></div><div class="service-list"><article class="service reveal"><span>01</span><div><h3>Performance Marketing</h3><p>Intent-led Google and Meta campaigns, conversion tracking, budget allocation and testing.</p></div><b>Profitable acquisition ↗</b></article><article class="service reveal"><span>02</span><div><h3>Growth Marketing</h3><p>Funnel diagnostics, CRO, remarketing and experimentation that increases value per visitor.</p></div><b>More value per visitor ↗</b></article><article class="service reveal"><span>03</span><div><h3>SEO &amp; Content</h3><p>Technical audits, keyword strategy, content mapping and organic visibility.</p></div><b>Compounding discovery ↗</b></article><article class="service reveal"><span>04</span><div><h3>Social Media</h3><p>Channel strategy, creative testing, paid social and community-led brand growth.</p></div><b>Sharper presence ↗</b></article><article class="service reveal"><span>05</span><div><h3>Analytics &amp; Optimization</h3><p>GA4, reporting, attribution and dashboards that make the next decision clearer.</p></div><b>Confident investment ↗</b></article></div></section>
+    <section class="services section" id="services">
+  <div class="services-wrap">
+    <div class="section-head reveal">
+      <span class="section-index">03 / Services</span>
+      <h2>What I build<br /><em>for growth.</em></h2>
+      <p>Performance-focused marketing systems designed to attract the right audience, convert demand and create measurable growth.</p>
+    </div>
+
+    <div class="service-showcase">
+      <article class="service-card service-card-featured reveal">
+        <div class="service-top"><span>01</span><i>CORE SERVICE</i></div>
+        <div class="service-content">
+          <div>
+            <h3>Performance Marketing</h3>
+            <p>Full-funnel Google &amp; Meta campaigns with conversion tracking, creative testing, audience strategy and continuous budget optimization.</p>
+          </div>
+          <div class="service-outcome"><strong>01</strong><span>Built for profitable acquisition</span></div>
+        </div>
+        <div class="service-tags"><b>Meta Ads</b><b>Google Ads</b><b>Retargeting</b><b>Analytics</b></div>
+        <span class="service-arrow">↗</span>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-top"><span>02</span><i>GROWTH</i></div>
+        <div class="service-content">
+          <h3>Growth Marketing</h3>
+          <p>Funnel diagnostics, CRO, experimentation and remarketing that turn more visitors into customers.</p>
+        </div>
+        <div class="service-bottom"><span>More value per visitor</span><b>↗</b></div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-top"><span>03</span><i>ORGANIC</i></div>
+        <div class="service-content">
+          <h3>SEO &amp; Content</h3>
+          <p>Technical SEO, keyword strategy and content systems built for sustainable organic discovery.</p>
+        </div>
+        <div class="service-bottom"><span>Compounding discovery</span><b>↗</b></div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-top"><span>04</span><i>SOCIAL</i></div>
+        <div class="service-content">
+          <h3>Social Media</h3>
+          <p>Content direction, creative testing, paid social and community-led brand visibility.</p>
+        </div>
+        <div class="service-bottom"><span>Sharper digital presence</span><b>↗</b></div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-top"><span>05</span><i>DATA</i></div>
+        <div class="service-content">
+          <h3>Analytics &amp; Optimization</h3>
+          <p>GA4, reporting, attribution and performance dashboards that make every next decision clearer.</p>
+        </div>
+        <div class="service-bottom"><span>Confident investment</span><b>↗</b></div>
+      </article>
+    </div>
+
+    <div class="services-note reveal">
+      <span>MY APPROACH</span>
+      <p>Strategy → Launch → Measure → Optimize → Scale</p>
+    </div>
+  </div>
+</section>
     <section class="stack section-dark section" aria-labelledby="stack-title"><div class="stack-top reveal"><span class="section-index">04 / Toolkit</span><h2 id="stack-title">The marketing<br /><em>stack.</em></h2><p>The platforms and systems that support the work.</p></div><div class="tool-grid"><span>GOOGLE ADS</span><span>META ADS</span><span>GA4</span><span>GTM</span><span>SEARCH CONSOLE</span><span>LOOKER STUDIO</span><span>SEO</span><span>CONTENT</span><span>CRM</span><span>CRO</span></div></section>
     <section class="process section"><div class="section-head reveal"><span class="section-index">05 / Process</span><h2>A simple loop.<br /><em>Better every time.</em></h2></div><div class="process-grid"><article class="reveal"><span>01</span><h3>Discover</h3><p>Understand the business, customer and baseline.</p></article><article class="reveal"><span>02</span><h3>Strategize</h3><p>Choose the highest-leverage channel and hypothesis.</p></article><article class="reveal"><span>03</span><h3>Launch</h3><p>Build campaigns, tracking and creative with intent.</p></article><article class="reveal"><span>04</span><h3>Measure</h3><p>Read the signal, not just the dashboard.</p></article><article class="reveal"><span>05</span><h3>Optimize</h3><p>Turn learning into the next experiment.</p></article><article class="reveal"><span>06</span><h3>Scale</h3><p>Put more behind what consistently works.</p></article></div></section>
     <section class="about section-dark section" id="about"><div class="about-image reveal"><img src="ammar-portrait.webp" alt="Ammar Ghanchi portrait" loading="lazy" /><span>THE PERSON<br />BEHIND THE NUMBERS</span></div><div class="about-copy reveal"><span class="section-index">06 / About</span><h2>The person behind<br /><em>the numbers.</em></h2><p>I’m Mohammad Ammar Ghanchi, a digital marketing professional focused on performance, growth and measurable outcomes.</p><p>My approach is simple: understand the objective, build the right system, measure what matters and keep improving it.</p><blockquote>“Marketing should look good. More importantly, it should <em>work.</em>”</blockquote></div></section>
