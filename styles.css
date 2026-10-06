@@ -874,3 +874,10 @@ body{overflow-x:hidden}
 @media(max-width:760px){
   #work .filter:nth-child(3){border-right-color:rgba(248,245,238,.14)!important}
 }
+
+
+/* Project tabs — stronger typography */
+#work .filter{
+  font-weight:700!important;
+  letter-spacing:.085em!important;
+}
