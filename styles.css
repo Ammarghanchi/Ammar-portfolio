@@ -1205,3 +1205,68 @@ body{overflow-x:hidden}
   #work .project-arrow{left:20px!important;right:auto!important;bottom:20px!important}
   #work .case-metrics{gap:22px}
 }
+
+
+
+/* SERVICES — core expertise cards based on requested reference */
+#services.services{
+  position:relative;overflow:hidden;
+  background:#0d0d15!important;color:#f0eff8;
+  padding:clamp(72px,7vw,112px) max(7.6%,calc((100vw - 1424px)/2)) 90px!important;
+}
+#services .services-wrap{position:relative;z-index:1}
+#services .services-heading{max-width:850px;margin:0 0 48px}
+#services .services-heading .section-index{
+  display:block;margin-bottom:18px;color:#a78bfa;
+  font-family:var(--mono);font-size:10px;font-weight:750;letter-spacing:.22em;
+}
+#services .services-heading h2{
+  margin:0;color:#f1f0f8;font-size:clamp(2.8rem,4vw,4rem);
+  font-weight:800;line-height:1.04;letter-spacing:-.055em;
+}
+#services .services-heading p{max-width:700px;margin:12px 0 0;color:#9b99b2;font-size:17px;line-height:1.35}
+#services .services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+#services .expertise-card{
+  min-width:0;min-height:390px;padding:40px 40px 34px;
+  display:flex;flex-direction:column;align-items:flex-start;
+  background:#171720;border:1px solid #302f3a;border-radius:24px;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+#services .expertise-card:hover{transform:translateY(-4px);border-color:#65518e;background:#1a1925}
+#services .expertise-icon{
+  width:58px;height:58px;border-radius:17px;display:grid;place-items:center;
+  margin-bottom:21px;font-size:36px;font-weight:500;
+}
+#services .meta-icon{background:#17263d;color:#0788ff;font-size:45px}
+#services .google-icon{background:#1d2638;position:relative;display:block}
+#services .google-icon span{position:absolute;width:10px;height:32px;border-radius:8px;left:25px;top:13px;transform:rotate(29deg);background:#fbbc04}
+#services .google-icon span:nth-child(2){left:32px;transform:rotate(-29deg);background:#4285f4}
+#services .google-icon span:nth-child(3){width:10px;height:12px;left:17px;top:32px;transform:rotate(29deg);background:#34a853}
+#services .social-icon{background:#2a1d35;color:#c5a0ff;font-size:32px}
+#services .seo-icon{background:#1e2d31;color:#69d5bf;font-size:42px}
+#services .analytics-icon{background:#30233a;color:#e1a7ff;font-size:35px}
+#services .growth-icon{background:#302b20;color:#f0c879;font-size:40px}
+#services .expertise-card h3{margin:0 0 22px;color:#f0eff8;font-size:20px;font-weight:800;letter-spacing:-.025em;line-height:1.25}
+#services .expertise-card p{margin:0 0 28px;color:#a09eb7;font-size:16px;line-height:1.85}
+#services .expertise-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
+#services .expertise-tags span{
+  display:inline-flex;padding:4px 11px;border:1px solid #403353;border-radius:999px;
+  background:#242033;color:#b69bff;font-size:12px;font-weight:700;line-height:1.2;
+}
+@media(max-width:1200px){
+  #services.services{padding-left:5%!important;padding-right:5%!important}
+  #services .services-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  #services .expertise-card{padding:30px;min-height:360px}
+}
+@media(max-width:760px){
+  #services.services{padding:78px 20px!important}
+  #services .services-heading{margin-bottom:34px}
+  #services .services-heading h2{font-size:clamp(2.5rem,11vw,3.6rem)}
+  #services .services-heading p{font-size:14px;line-height:1.6}
+  #services .services-grid{grid-template-columns:1fr;gap:14px}
+  #services .expertise-card{min-height:0;padding:26px 23px}
+  #services .expertise-icon{width:52px;height:52px;margin-bottom:18px}
+  #services .expertise-card h3{font-size:19px;margin-bottom:14px}
+  #services .expertise-card p{font-size:14px;line-height:1.7;margin-bottom:23px}
+  #services .expertise-tags span{font-size:11px}
+}
