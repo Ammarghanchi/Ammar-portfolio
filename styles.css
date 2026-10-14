@@ -1360,3 +1360,27 @@ body{overflow-x:hidden}
 .stack .tool-card:nth-child(8) .tool-logo img{width:54px;height:54px}
 .stack .tool-card:nth-child(9) .tool-logo img{padding:7px;background:#10a37f;border-radius:12px}
 .stack .tool-card:nth-child(12) .tool-logo img{width:56px;height:56px}
+
+
+
+/* Reliable local-style marks for Canva and SEO tools (no external image dependency) */
+.stack .tool-logo.canva-brand{
+  width:54px;height:54px;flex:0 0 54px;border-radius:50%;
+  background:linear-gradient(140deg,#00c4cc 0%,#2875ed 48%,#7d2ae8 100%);
+  color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:17px;
+  font-style:italic;font-weight:700;letter-spacing:-.06em;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+}
+.stack .tool-logo.seo-brand{
+  width:60px;height:54px;flex:0 0 54px;gap:0;
+  color:#168cff;font-size:25px;font-weight:500;letter-spacing:-.08em;
+}
+.stack .tool-logo.seo-brand b{font-weight:500}
+.stack .tool-logo.seo-brand i{
+  display:block;width:14px;height:14px;border:3px solid #ff604f;border-radius:50%;
+  position:absolute;right:3px;top:10px;
+}
+.stack .tool-logo.seo-brand i:after{
+  content:"";position:absolute;width:8px;height:3px;background:#9c9bad;
+  right:-7px;bottom:-4px;transform:rotate(48deg);border-radius:2px;
+}
