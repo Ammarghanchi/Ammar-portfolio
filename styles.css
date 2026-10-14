@@ -1351,3 +1351,12 @@ body{overflow-x:hidden}
   .stack .tool-logo{transform-origin:center}
   .stack .gtm-logo{transform:rotate(45deg)}
 }
+
+
+
+/* Use recognizable brand marks in the toolkit cards */
+.stack .tool-logo{flex:0 0 56px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:initial}
+.stack .tool-logo img{display:block;width:52px;height:52px;max-width:100%;object-fit:contain}
+.stack .tool-card:nth-child(8) .tool-logo img{width:54px;height:54px}
+.stack .tool-card:nth-child(9) .tool-logo img{padding:7px;background:#10a37f;border-radius:12px}
+.stack .tool-card:nth-child(12) .tool-logo img{width:56px;height:56px}
