@@ -1270,3 +1270,84 @@ body{overflow-x:hidden}
   #services .expertise-card p{font-size:14px;line-height:1.7;margin-bottom:23px}
   #services .expertise-tags span{font-size:11px}
 }
+
+
+
+/* TOOLKIT — icon-led tech stack gallery */
+.stack{
+  background:#08080d!important;
+  color:#f1f0f8;
+  padding:clamp(70px,7vw,100px) max(7.5%,calc((100vw - 1420px)/2)) 100px!important;
+  overflow:hidden;
+}
+.stack-showcase{max-width:1600px;margin:0 auto}
+.stack .stack-top{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  margin:0 auto 48px;gap:12px;
+}
+.stack .stack-top .section-index{
+  color:#a78bfa;font-family:var(--mono);font-size:10px;
+  font-weight:750;letter-spacing:.22em;
+}
+.stack .stack-top h2{
+  color:#f2f0f8;font-size:clamp(2.8rem,4vw,4rem);line-height:1.02;
+  letter-spacing:-.055em;margin:0;font-weight:800;
+}
+.stack .stack-top h2 em{font-style:normal;color:#a78bfa}
+.stack .stack-top p{color:#9c9ab2;font-size:16px;line-height:1.5;margin:0}
+.stack .tool-grid{
+  display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;
+  gap:20px!important;border:0!important;
+}
+.stack .tool-card{
+  min-width:0;min-height:140px;padding:23px 12px 18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:#121217;border:1px solid #292932;border-radius:25px;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.stack .tool-card:hover{transform:translateY(-4px);border-color:#65518e;background:#17151f}
+.stack .tool-card>span{
+  color:#9e9cb5!important;font-size:10px!important;font-family:var(--mono);
+  font-weight:750;letter-spacing:.045em;text-align:center;
+}
+.stack .tool-logo{
+  width:56px;height:56px;display:flex;align-items:center;justify-content:center;
+  position:relative;font-size:40px;line-height:1;font-weight:600;
+}
+.stack .meta-logo{color:#087bfa;font-size:61px;font-family:Arial,sans-serif}
+.stack .google-logo i{position:absolute;width:16px;height:43px;border-radius:9px;left:20px;top:7px;transform:rotate(-30deg);background:#4285f4}
+.stack .google-logo i:nth-child(2){transform:rotate(30deg);background:#fbbc04;left:9px;top:14px;height:30px}
+.stack .google-logo i:nth-child(3){transform:rotate(30deg);background:#34a853;left:6px;top:31px;height:18px;width:16px}
+.stack .ga-logo i{position:absolute;bottom:7px;width:12px;border-radius:8px;background:#f9ab00}
+.stack .ga-logo i:nth-child(1){height:15px;left:5px}
+.stack .ga-logo i:nth-child(2){height:27px;left:22px}
+.stack .ga-logo i:nth-child(3){height:43px;left:39px}
+.stack .gtm-logo{width:34px;height:34px;margin:11px;background:#4285f4;transform:rotate(45deg);border-radius:4px}
+.stack .gtm-logo:after{content:"";position:absolute;width:19px;height:19px;background:#55c5f7;left:-6px;top:-6px;border-radius:3px}
+.stack .gtm-logo i{position:absolute;width:8px;height:8px;background:#171720;z-index:2}
+.stack .gsc-logo i{position:absolute;width:17px;height:29px;border-radius:10px;background:#4285f4;left:27px;top:4px}
+.stack .gsc-logo i:nth-child(2){background:#34a853;left:15px;top:18px;height:24px}
+.stack .gsc-logo i:nth-child(3){background:#fbbc04;left:7px;top:29px;height:14px;width:14px}
+.stack .looker-logo{color:#4c8bf5;font-size:53px}
+.stack .canva-logo{width:51px;height:51px;border-radius:50%;font-family:Georgia,serif;font-style:italic;font-size:18px;color:#fff;background:linear-gradient(145deg,#00c4cc,#7d2ae8 80%)}
+.stack .wp-logo{border-radius:50%;border:3px solid #d7f4ff;color:#d7f4ff;font-family:Georgia,serif;font-size:43px}
+.stack .chatgpt-logo{background:#10a37f;color:#fff;border-radius:12px;font-size:43px}
+.stack .semrush-logo{flex-direction:column;color:#ff7043;font-size:25px}
+.stack .semrush-logo small{font-size:7px;color:#f0eff8;font-weight:800}
+.stack .seo-logo{font-size:26px;color:#18a0fb;letter-spacing:-.08em}
+.stack .seo-logo span{color:#ff5e53;font-size:20px;margin-left:-2px}
+.stack .claude-logo{color:#d97757;font-size:56px}
+@media(max-width:1100px){
+  .stack{padding-left:5%!important;padding-right:5%!important}
+  .stack .tool-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important}
+}
+@media(max-width:760px){
+  .stack{padding:76px 20px!important}
+  .stack .stack-top{margin-bottom:34px}
+  .stack .stack-top h2{font-size:clamp(2.7rem,11vw,3.7rem)}
+  .stack .stack-top p{font-size:13px}
+  .stack .tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .stack .tool-card{min-height:126px;padding:18px 8px;border-radius:20px}
+  .stack .tool-logo{transform-origin:center}
+  .stack .gtm-logo{transform:rotate(45deg)}
+}
