@@ -1384,3 +1384,28 @@ body{overflow-x:hidden}
   content:"";position:absolute;width:8px;height:3px;background:#9c9bad;
   right:-7px;bottom:-4px;transform:rotate(48deg);border-radius:2px;
 }
+
+
+/* Case-study credibility and expanded detail panels */
+#work .projects-view-all{white-space:nowrap}
+#work .project-meta>span:first-child{color:#b6a0ff}
+#work .project-meta .case-metrics strong{font-size:13px;letter-spacing:.01em}
+#work .project-meta .case-metrics small{line-height:1.45}
+.case-detail-extra{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px
+}
+.case-detail-extra>div{
+  min-width:0;padding:18px 19px;border:1px solid rgba(167,139,250,.2);
+  border-radius:15px;background:rgba(255,255,255,.025)
+}
+.case-detail-extra>div>span{
+  display:block;margin-bottom:9px;color:#b6a0ff;font-size:10px;
+  font-weight:800;letter-spacing:.13em
+}
+.case-detail-extra p{margin:0;color:#c2bfd2;font-size:14px;line-height:1.7}
+.case-modal-footer>span{max-width:55%;font-size:10px;letter-spacing:.09em;line-height:1.6}
+@media(max-width:650px){
+  .case-detail-extra{grid-template-columns:1fr}
+  .case-modal-footer{gap:14px;align-items:flex-start;flex-direction:column}
+  .case-modal-footer>span{max-width:100%}
+}
