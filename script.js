@@ -1,13 +1,105 @@
-const nav=document.getElementById('site-nav');const progress=document.querySelector('.progress span');const cursor=document.querySelector('.cursor');const menu=document.querySelector('.mobile-menu');const toggle=document.querySelector('.menu-toggle');
-function onScroll(){const max=document.documentElement.scrollHeight-window.innerHeight;if(progress)progress.style.width=`${max>0?(window.scrollY/max)*100:0}%`;}window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-if(toggle&&menu){toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-hidden',String(!open));document.body.style.overflow=open?'hidden':'';});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');menu.setAttribute('aria-hidden','true');document.body.style.overflow='';}));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');menu.setAttribute('aria-hidden','true');document.body.style.overflow='';toggle.focus();}});}
-const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}}),{threshold:.08,rootMargin:'0px 0px -50px'});document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=`${Math.min(i*55,350)}ms`;revealObserver.observe(el);});
-function count(el){const target=Number(el.dataset.count);if(!Number.isFinite(target))return;const suffix=el.dataset.suffix||'';const start=performance.now();function frame(now){const p=Math.min((now-start)/1100,1),eased=1-Math.pow(1-p,3);el.textContent=`${Math.round(target*eased)}${suffix}`;if(p<1)requestAnimationFrame(frame);}requestAnimationFrame(frame);}const counterObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){count(e.target);counterObserver.unobserve(e.target);}}),{threshold:.5});document.querySelectorAll('[data-count]').forEach(el=>counterObserver.observe(el));
-const filters=document.querySelectorAll('.filter'),projects=document.querySelectorAll('.project');filters.forEach(filter=>filter.addEventListener('click',()=>{filters.forEach(f=>f.classList.remove('active'));filter.classList.add('active');const value=filter.dataset.filter;projects.forEach(card=>{card.style.display=value==='all'||card.dataset.category===value?'':'none';});}));
-if(cursor&&window.matchMedia('(pointer:fine)').matches){let mx=0,my=0,cx=0,cy=0;window.addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;});function cursorFrame(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cursor.style.left=`${cx}px`;cursor.style.top=`${cy}px`;requestAnimationFrame(cursorFrame);}requestAnimationFrame(cursorFrame);document.querySelectorAll('a,button,.project,.service,.metric').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.style.width='34px';cursor.style.height='34px';});el.addEventListener('mouseleave',()=>{cursor.style.width='18px';cursor.style.height='18px';});});document.querySelectorAll('.magnetic').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-(r.left+r.width/2))*.12}px,${(e.clientY-(r.top+r.height/2))*.12}px)`;}));document.querySelectorAll('.magnetic').forEach(el=>el.addEventListener('pointerleave',()=>el.style.transform=''));}
-const portrait=document.querySelector('[data-parallax]');if(portrait&&window.matchMedia('(pointer:fine)').matches){window.addEventListener('pointermove',e=>{const x=(e.clientX/window.innerWidth-.5)*10,y=(e.clientY/window.innerHeight-.5)*10;portrait.style.transform=`translate(${x}px,${y}px)`;},{passive:true});}
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(!id||id==='#')return;const target=document.querySelector(id);if(!target)return;e.preventDefault();const offset=nav?.offsetHeight||74;window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-offset,behavior:'smooth'});}));
-const form=document.getElementById('contact-form');if(form){form.addEventListener('submit',e=>{e.preventDefault();const data=new FormData(form),name=String(data.get('name')||'').trim(),email=String(data.get('email')||'').trim(),message=String(data.get('message')||'').trim();if(!name||!email||!message){form.reportValidity();return;}const subject=encodeURIComponent(`Portfolio inquiry from ${name}`),body=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nGrowth challenge:\n${message}`),button=form.querySelector('button');if(button){button.textContent='Opening email…';button.disabled=true;}window.location.href=`mailto:ammardigital04@gmail.com?subject=${subject}&body=${body}`;setTimeout(()=>{if(button){button.textContent='Send inquiry ↗';button.disabled=false;}},3000);});}
+const nav=document.getElementById('site-nav');
+const progress=document.querySelector('.progress span');
+const menu=document.querySelector('.mobile-menu');
+const toggle=document.querySelector('.menu-toggle');
+const NAV_OFFSET=()=>(nav?nav.offsetHeight:74);
+
+/* ---------- Scroll progress ---------- */
+function onScroll(){const max=document.documentElement.scrollHeight-window.innerHeight;if(progress)progress.style.width=`${max>0?(window.scrollY/max)*100:0}%`;}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ---------- Mobile menu ---------- */
+function closeMenu(){if(!menu||!toggle)return;menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');menu.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+if(toggle&&menu){
+  toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-hidden',String(!open));document.body.style.overflow=open?'hidden':'';});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){closeMenu();toggle.focus();}});
+}
+
+/* ---------- Reveal on scroll ---------- */
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}}),{threshold:.08,rootMargin:'0px 0px -40px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=`${Math.min((i%6)*60,300)}ms`;revealObserver.observe(el);});
+
+/* ---------- Count-up numbers (final value is already in the HTML) ---------- */
+function count(el){
+  const target=Number(el.dataset.count);if(!Number.isFinite(target))return;
+  const suffix=el.dataset.suffix||'';const start=performance.now();
+  function frame(now){const p=Math.min((now-start)/1100,1),eased=1-Math.pow(1-p,3);el.textContent=`${Math.round(target*eased)}${suffix}`;if(p<1)requestAnimationFrame(frame);}
+  requestAnimationFrame(frame);
+}
+const counterObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){count(e.target);counterObserver.unobserve(e.target);}}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>counterObserver.observe(el));
+
+/* ---------- Project filters ---------- */
+const filters=document.querySelectorAll('.filter'),projects=document.querySelectorAll('.project');
+filters.forEach(filter=>filter.addEventListener('click',()=>{
+  filters.forEach(f=>f.classList.remove('active'));filter.classList.add('active');
+  const value=filter.dataset.filter;
+  projects.forEach(card=>{card.style.display=value==='all'||card.dataset.category===value?'':'none';});
+}));
+
+/* ---------- Smooth scrolling ---------- */
+function scrollToEl(target){window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-NAV_OFFSET()-12,behavior:'smooth'});}
+
+/* "Let's Work Together" / "Let's Talk" -> jump straight to the inquiry box */
+const contactBox=document.getElementById('contact-box');
+const contactForm=document.getElementById('contact-form');
+function goToForm(){
+  if(!contactBox)return;
+  scrollToEl(contactBox);
+  setTimeout(()=>{
+    contactBox.classList.add('pulse');
+    const first=contactForm&&contactForm.querySelector('input[name="name"]');
+    if(first)first.focus({preventScroll:true});
+    setTimeout(()=>contactBox.classList.remove('pulse'),1800);
+  },650);
+}
+document.querySelectorAll('[data-scroll-form]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();closeMenu();goToForm();}));
+
+document.querySelectorAll('a[href^="#"]:not([data-scroll-form])').forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href');if(!id||id==='#')return;
+  const target=document.querySelector(id);if(!target)return;
+  e.preventDefault();
+  if(id==='#top'){window.scrollTo({top:0,behavior:'smooth'});return;}
+  scrollToEl(target);
+}));
+
+/* ---------- Contact form: delivers the inquiry to the inbox ---------- */
+const MAIL_TO='ammardigital04@gmail.com';
+const note=document.getElementById('form-note');
+function setNote(text,kind){if(!note)return;note.textContent=text;note.classList.remove('ok','err');if(kind)note.classList.add(kind);}
+if(contactForm){
+  const button=contactForm.querySelector('button[type="submit"]');
+  const idleLabel=button?button.innerHTML:'';
+  const idleNote=note?note.textContent:'';
+  contactForm.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const data=new FormData(contactForm);
+    const name=String(data.get('name')||'').trim(),email=String(data.get('email')||'').trim(),message=String(data.get('message')||'').trim();
+    if(!name||!email||!message||!contactForm.checkValidity()){contactForm.reportValidity();setNote('Please fill in your name, a valid email and a short message.','err');return;}
+    if(String(data.get('_honey')||'')){setNote('Thanks! Your inquiry has been sent.','ok');contactForm.reset();return;}
+    if(button){button.disabled=true;button.textContent='Sending…';}
+    setNote('Sending your inquiry…');
+    try{
+      const res=await fetch(`https://formsubmit.co/ajax/${MAIL_TO}`,{
+        method:'POST',
+        headers:{'Content-Type':'application/json',Accept:'application/json'},
+        body:JSON.stringify({name,email,message,_subject:`New portfolio inquiry from ${name}`,_template:'table',_captcha:'false'})
+      });
+      const out=await res.json().catch(()=>({}));
+      if(!res.ok||String(out.success)==='false')throw new Error('send failed');
+      contactForm.reset();
+      setNote('Thank you! Your inquiry is on its way to my inbox. I will reply soon.','ok');
+    }catch(err){
+      const subject=encodeURIComponent(`Portfolio inquiry from ${name}`),body=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nGrowth challenge:\n${message}`);
+      setNote('Could not send automatically, so your email app is opening instead.','err');
+      window.location.href=`mailto:${MAIL_TO}?subject=${subject}&body=${body}`;
+    }finally{
+      if(button){button.disabled=false;button.innerHTML=idleLabel;}
+      setTimeout(()=>{if(note&&!note.classList.contains('err'))setNote(idleNote);},9000);
+    }
+  });
+}
 
 const caseData={
 "mobglob":{title:"Mobglob",subtitle:"Mobile Accessories · E-commerce Brand Concept",challenge:"A new mobile-accessories brand needs a distinctive position in a crowded category where shoppers compare design, price and trust.",objective:"Build a consistent product-first presence and outline a path from product discovery to purchase.",strategy:"Define audience segments, organize product-led messaging, plan creative angles and map prospecting to retargeting.",execution:"Brand and audience positioning, content pillars, product-page recommendations, paid-social campaign structure and a measurement checklist.",role:"Digital marketing strategy, campaign planning and content direction.",deliverables:"Audience and competitor notes; creative testing plan; campaign structure; landing-page checklist; retargeting journey.",measurement:"Track product-page views, add-to-cart rate, checkout completion, purchase conversion rate, CPA and ROAS once live data exists.",learning:"Product imagery and clear value propositions should be tested together; do not scale spend until tracking and purchase events are validated.",results:[["Brand","E-commerce concept"],["Channel","Paid social"],["Focus","Product discovery"],["Stage","Strategy concept"]]},
@@ -20,4 +112,4 @@ const caseData={
 const modal=document.getElementById("case-modal");
 function openCase(key){const d=caseData[key];if(!d||!modal)return;document.getElementById("case-modal-title").textContent=d.title;document.getElementById("case-modal-subtitle").textContent=d.subtitle;document.getElementById("case-challenge").textContent=d.challenge;document.getElementById("case-objective").textContent=d.objective;document.getElementById("case-strategy").textContent=d.strategy;document.getElementById("case-execution").textContent=d.execution;document.getElementById("case-role").textContent=d.role;document.getElementById("case-deliverables").textContent=d.deliverables;document.getElementById("case-measurement").textContent=d.measurement;document.getElementById("case-learning").textContent=d.learning;document.getElementById("case-results").innerHTML=d.results.map(r=>`<div><strong>${r[0]}</strong><small>${r[1]}</small></div>`).join("");modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.classList.add("modal-open");}
 function closeCase(){if(!modal)return;modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.classList.remove("modal-open");}
-document.querySelectorAll("[data-case-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.caseOpen)));document.querySelectorAll("[data-case-close]").forEach(b=>b.addEventListener("click",closeCase));document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCase();});
+document.querySelectorAll("[data-case-open]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();openCase(b.dataset.caseOpen);}));document.querySelectorAll(".project[data-case]").forEach(card=>card.addEventListener("click",()=>openCase(card.dataset.case)));document.querySelectorAll("[data-case-close]").forEach(b=>b.addEventListener("click",closeCase));document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCase();});
