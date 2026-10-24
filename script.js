@@ -64,40 +64,25 @@ document.querySelectorAll('a[href^="#"]:not([data-scroll-form])').forEach(a=>a.a
   scrollToEl(target);
 }));
 
-/* ---------- Contact form: delivers the inquiry to the inbox ---------- */
+/* ---------- Contact form: opens the visitor's email with the inquiry filled in ---------- */
 const MAIL_TO='ammardigital04@gmail.com';
 const note=document.getElementById('form-note');
 function setNote(text,kind){if(!note)return;note.textContent=text;note.classList.remove('ok','err');if(kind)note.classList.add(kind);}
+const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&window.matchMedia('(pointer:coarse)').matches);
 if(contactForm){
-  const button=contactForm.querySelector('button[type="submit"]');
-  const idleLabel=button?button.innerHTML:'';
-  const idleNote=note?note.textContent:'';
-  contactForm.addEventListener('submit',async e=>{
+  contactForm.addEventListener('submit',e=>{
     e.preventDefault();
     const data=new FormData(contactForm);
     const name=String(data.get('name')||'').trim(),email=String(data.get('email')||'').trim(),message=String(data.get('message')||'').trim();
     if(!name||!email||!message||!contactForm.checkValidity()){contactForm.reportValidity();setNote('Please fill in your name, a valid email and a short message.','err');return;}
-    if(String(data.get('_honey')||'')){setNote('Thanks! Your inquiry has been sent.','ok');contactForm.reset();return;}
-    if(button){button.disabled=true;button.textContent='Sending…';}
-    setNote('Sending your inquiry…');
-    try{
-      const res=await fetch(`https://formsubmit.co/ajax/${MAIL_TO}`,{
-        method:'POST',
-        headers:{'Content-Type':'application/json',Accept:'application/json'},
-        body:JSON.stringify({name,email,message,_subject:`New portfolio inquiry from ${name}`,_template:'table',_captcha:'false'})
-      });
-      const out=await res.json().catch(()=>({}));
-      if(!res.ok||String(out.success)==='false')throw new Error('send failed');
-      contactForm.reset();
-      setNote('Thank you! Your inquiry is on its way to my inbox. I will reply soon.','ok');
-    }catch(err){
-      const subject=encodeURIComponent(`Portfolio inquiry from ${name}`),body=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nGrowth challenge:\n${message}`);
-      setNote('Could not send automatically, so your email app is opening instead.','err');
-      window.location.href=`mailto:${MAIL_TO}?subject=${subject}&body=${body}`;
-    }finally{
-      if(button){button.disabled=false;button.innerHTML=idleLabel;}
-      setTimeout(()=>{if(note&&!note.classList.contains('err'))setNote(idleNote);},9000);
-    }
+    const subject=`Portfolio inquiry from ${name}`;
+    const body=`Name: ${name}\nEmail: ${email}\n\nWhat I want to grow:\n${message}`;
+    const mailto=`mailto:${MAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmail=`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(MAIL_TO)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setNote('Opening your email with the inquiry filled in. Just press Send.','ok');
+    if(isMobile){window.location.href=mailto;return;}
+    const win=window.open(gmail,'_blank');
+    if(win){win.opener=null;}else{window.location.href=mailto;}
   });
 }
 
